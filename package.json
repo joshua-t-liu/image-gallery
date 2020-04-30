@@ -1,0 +1,11 @@
+{
+  "name": "image-gallery",
+  "version": "0.0.0",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0"
+  }
+}
