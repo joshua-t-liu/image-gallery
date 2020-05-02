@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const { MONTHS, TAGS, DAYS } = require('./constants.js');
+const { formatOpenTime } = require('./helper.js');
+
+const { MONTHS, TAGS } = require('./constants.js');
 
 const root = 'https://loremflickr.com/320/240';
 
@@ -46,25 +48,6 @@ schema.virtual('imageURLs').get(function urls() {
 schema.virtual('rooms').get(function rooms() {
   return `${this.beds} bed${this.beds > 1 ? 's' : ''} ${this.baths} bath${this.baths > 1 ? 's' : ''}`;
 });
-
-const splitDateInfo = (date) => {
-  const hour = date.getHours();
-  const minutes = date.getMinutes();
-  return {
-    day: DAYS[date.getDay()],
-    hour: (hour % 12) || 12,
-    minutes: minutes ? `:${minutes}` : '',
-    period: hour > 11 ? 'PM' : 'AM',
-  };
-};
-
-const formatOpenTime = (startDate, endDate) => {
-  if (!startDate || !endDate) return '';
-  const { day, hour, minutes } = splitDateInfo(startDate);
-  const openHours = `${day},${hour}${minutes}`;
-  const { hourEnd, minutesEnd, period } = splitDateInfo(endDate);
-  return `${openHours}-${hourEnd}${minutesEnd}${period}`;
-};
 
 schema.virtual('tagsProcessed').get(function processTags() {
   return this.tags.map((tag) => ((tag === 'OPEN') ? `OPEN ${formatOpenTime(this.openStart, this.openEnd)}` : tag));
