@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "image gallery",
   "scripts": {
+    "start": "node .",
     "seed": "node ./db/seed.js",
     "compile": "webpack -d"
   },
