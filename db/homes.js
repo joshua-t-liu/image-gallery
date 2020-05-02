@@ -6,7 +6,11 @@ const { MONTHS, TAGS } = require('./constants.js');
 
 const root = 'https://loremflickr.com/320/240';
 
-mongoose.connect('mongodb://localhost:27017/trulia');
+mongoose.connect('mongodb://localhost/trulia', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 
 const schemaId = new mongoose.Schema({
   _id: {
@@ -41,15 +45,15 @@ schema.path('price').get((v) => `$${String(v).replace(/(\d)(?=(\d{3})+$)/g, '$&,
 
 schema.path('dateSold').get((v) => (v ? `${MONTHS[v.getMonth()]} ${v.getDate()},${v.getFullYear()}` : v));
 
-schema.virtual('imageURLs').get(function urls() {
+schema.virtual('imageURLs').get(function getImages() {
   return this.images.map((img) => `${root}/${img}`);
 });
 
-schema.virtual('rooms').get(function rooms() {
+schema.virtual('rooms').get(function getRooms() {
   return `${this.beds} bed${this.beds > 1 ? 's' : ''} ${this.baths} bath${this.baths > 1 ? 's' : ''}`;
 });
 
-schema.virtual('tagsProcessed').get(function processTags() {
+schema.virtual('tagsProcessed').get(function getTags() {
   return this.tags.map((tag) => ((tag === 'OPEN') ? `OPEN ${formatOpenTime(this.openStart, this.openEnd)}` : tag));
 });
 

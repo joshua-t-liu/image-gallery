@@ -1,30 +1,29 @@
 const faker = require('faker');
 
-const db = require('./db.js');
+const db = require('./index.js');
 
 const homes = [];
 
 for (let i = 0; i < 100; i += 1) {
   let dateSold;
-  let tags;
   let openStart;
   let openEnd;
+  let tags = [];
   const beds = faker.random.number({ min: 2, max: 8, precision: 1 });
-
   if (Math.random() < 0.1) {
-    tags = ['SOLD'];
+    tags.push('SOLD');
     dateSold = faker.date.past();
   } else {
-    tags = ['FOR SALE'];
+    tags.push('FOR SALE');
     if (Math.random() < 0.1) {
+      tags.push('OPEN');
       openStart = faker.date.future();
-      openStart.setHours(faker.random.number({ min: 10, max: 6, precision: 1 }));
+      openStart.setHours(faker.random.number({ min: 9, max: 6, precision: 1 }));
       openStart.setMinutes(Math.random() > 0.5 ? 0 : 30);
       openEnd = new Date(openStart);
-      const hr = openEnd.getHours() + faker.random.number({ min: 2, max: 4, precision: 1 });
-      openEnd.setHours(hr);
+      const offset = faker.random.number({ min: 2, max: 4, precision: 1 });
+      openEnd.setHours(openEnd.getHours() + offset);
       openEnd.setMinutes(Math.random() > 0.5 ? 0 : 30);
-      tags.push('OPEN');
     }
   }
 
