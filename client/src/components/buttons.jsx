@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Switch, Route, useLocation, useHistory, Link, useRouteMatch } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -16,6 +17,9 @@ const Button = styled.button`
   border-style: solid;
   border-radius: 8px;
   outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ButtonNav = styled(Button)`
@@ -32,6 +36,7 @@ const ButtonNav = styled(Button)`
 `;
 
 const ButtonCTA = styled(Button)`
+  display: inline-block;
   background-color: rgb(255, 255, 255);
   color: rgb(59, 65, 68);
   border-color: rgb(205, 209, 212);
@@ -149,21 +154,21 @@ const Gallery = ({ imageCount }) => (
   </ButtonGallery>
 );
 
-const Exit = ({ hook }) => (
-  <StyledExit onClick={() => {ReactDOM.render(null, document.getElementById(hook))}}>
-    <svg viewBox='0 0 32 32' style={{ height: '24px', width: '24px' }}>
-      <Path d='M27.816 25.935l-1.881 1.88-21.83-21.83 1.88-1.88 21.83 21.83zm-1.881-21.83l1.88 1.88-21.83 21.83-1.88-1.88 21.83-21.83z' fill='#869099' />
-    </svg>
-  </StyledExit>
-)
+const Exit = ({}) => {
+  const history = useHistory();
+  const { state } = useLocation();
 
-const Nav = ({ id, title, onClick, selected = false}) => {
+  const onClick = (event) => {
+    event.stopPropagation();
+    history.push(state.background.pathname);
+  }
+
   return (
-    <div style={{ borderWidth: '0px 2px 0px', borderColor: 'transparent', borderStyle: 'solid' }}>
-      <ButtonNav id={id} selected={selected} onClick={onClick}>
-        <span>{title}</span>
-      </ButtonNav>
-    </div>
+    <StyledExit onClick={onClick}>
+      <svg viewBox='0 0 32 32' style={{ height: '24px', width: '24px' }}>
+        <Path d='M27.816 25.935l-1.881 1.88-21.83-21.83 1.88-1.88 21.83 21.83zm-1.881-21.83l1.88 1.88-21.83 21.83-1.88-1.88 21.83-21.83z' fill='#869099' />
+      </svg>
+    </StyledExit>
   )
 }
 
@@ -178,5 +183,20 @@ const Tag = ({tag}) => (
     {tag}
   </span>
 )
+
+const Nav = ({ id, title, path, onClick, selected = false}) => {
+  const { state } = useLocation();
+  // const { path } = useRouteMatch();
+
+  return (
+    <Link to={{ pathname: path, state: state }}>
+      <div style={{ borderWidth: '0px 2px 0px', borderColor: 'transparent', borderStyle: 'solid' }}>
+        <ButtonNav id={id} selected={selected} onClick={onClick}>
+          <span>{title}</span>
+        </ButtonNav>
+      </div>
+    </Link>
+  )
+}
 
 export { Save, Share, SlideButton, Gallery, Exit, Nav, Schedule, Tag };

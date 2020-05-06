@@ -16,6 +16,13 @@ const StyledDiv = styled.div`
     flex: ${({ flex }) => flex || '1 1 auto'};
   }
   background-color: ${({ backgroundColor }) => backgroundColor || ''};
+  &.small-font {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  &.white {
+    color: rgb(255, 255, 255);
+  }
 `;
 
 const Absolute = styled(StyledDiv)`
@@ -32,27 +39,13 @@ const BorderTop = styled(StyledDiv)`
 
 const FlexContainer = styled(StyledDiv)`
   display: flex;
-`;
-
-const FlexContainerCentered = styled(StyledDiv)`
-  display: flex;
-  align-items: center;
+  &.centered {
+    align-items: center;
+  }
 `;
 
 const FlexContainerCol = styled(FlexContainer)`
   flex-direction: column;
-`;
-
-const StackZero = styled.div`
-  z-index: 0;
-`;
-
-const SmallFont = styled.div`
-  font-size: 14px;
-  line-height: 1.43;
-  &.white {
-    color: rgb(255, 255, 255);
-  }
 `;
 
 const StyledModal = styled.div`
@@ -67,14 +60,14 @@ const StyledModal = styled.div`
   transition: opacity 0.5s;
 `;
 
-const MainImage = styled.img`
+const StyledMainImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
   cursor: pointer;
-  &.main:hover {
+  &.zoom:hover {
     transform: scale(1.04);
   }
 `;
 
-export { StyledModal, StyledDiv, Absolute, BorderTop, FlexContainer, FlexContainerCentered, FlexContainerCol, StackZero, SmallFont, MainImage };
+export { StyledModal, StyledDiv, Absolute, BorderTop, FlexContainer, FlexContainerCol, StyledMainImage };

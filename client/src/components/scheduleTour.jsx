@@ -3,7 +3,7 @@ import React from 'react';
 import { Schedule } from './buttons.jsx';
 import CarouselFixed from './carouselFixed.jsx';
 
-let inputStyle = { borderRadius: '8px', lineHeight: 1.5, fontSize: '16px', borderColor: 'rgb(205, 209, 212)', borderWidth: '1px', borderStyle: 'solid', padding: '8px', width: '100%' }
+let inputStyle = { borderRadius: '8px', lineHeight: 1.5, fontSize: '16px', borderColor: 'rgb(205, 209, 212)', borderWidth: '1px', borderStyle: 'solid', padding: '8px', width: '100%', boxSizing: 'border-box' }
 
 const right = (
   <div style={{ position: 'absolute', top: 'calc(50% - 16px)', right: '-16px' }}>
@@ -35,6 +35,7 @@ const ScheduleTour = (props) => (
 
     <div>
       <form onSubmit={() => {}}>
+
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ color: 'rgb(134, 144, 153)', display: 'inline-flex', alignItems: 'center', padding: '4px' }}>
             <div>Tour Type</div>
@@ -47,16 +48,14 @@ const ScheduleTour = (props) => (
 
           <div style={{ padding: '4px' }}>
             <div style={{ display: 'flex' }}>
-              <button style={{ borderRadius: '8px 0 0 8px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 120, 130)', width: '50%', lineHeight: 1.5, backgroundColor: 'rgb(0, 120, 130)', color: 'rgb(255, 255, 255)', fontSize: '16px', fontWeight: 'bold', padding: '8 16' }}>In-Person</button>
-              <button style={{ borderRadius: '0 8px 8px 0', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(205, 209, 212)', width: '50%', lineHeight: 1.5, backgroundColor: 'rgb(255, 255, 255)', color: 'rgb(59, 65, 68)', fontSize: '16px', fontWeight: 'bold', padding: '8 16' }}>Virtual</button>
+              <button style={{ borderRadius: '8px 0 0 8px', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(0, 120, 130)', width: '50%', lineHeight: 1.5, backgroundColor: 'rgb(0, 120, 130)', color: 'rgb(255, 255, 255)', fontSize: '16px', fontWeight: 'bold', padding: '8px 16px' }}>In-Person</button>
+              <button style={{ borderRadius: '0 8px 8px 0', borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgb(205, 209, 212)', width: '50%', lineHeight: 1.5, backgroundColor: 'rgb(255, 255, 255)', color: 'rgb(59, 65, 68)', fontSize: '16px', fontWeight: 'bold', padding: '8px 16px' }}>Virtual</button>
             </div>
           </div>
 
+          {/* left={left} right={right} */}
           <div style={{ padding: '4px', position: 'relative' }}>
-
-            {/* left={left} right={right} */}
             <CarouselFixed style={{ marginLeft: '-4px', marginRight: '-4px' }} >
-
               {Array(7).fill({ day: 'Tue', date: '5', month: 'May' }).map((slot, idx) => {
                 return (
                   <div style={{ borderSize: '8px 4px 0px', width: '25%', borderStyle: 'solid', borderColor: 'transparent', boxSizing: 'border-box' }}>
@@ -68,9 +67,7 @@ const ScheduleTour = (props) => (
                   </div>
                 )
               })}
-
             </CarouselFixed>
-            {/* </div> */}
           </div>
 
           <div style={{ display: 'flex', padding: '4px' }}>

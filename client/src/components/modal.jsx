@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useHistory, useLocation } from 'react-router-dom';
+
 import { StyledModal } from './styles.jsx';
 
-const Modal = ({ children, hook }) => {
+const Modal = ({ children }) => {
+  const history = useHistory();
+  const { state } = useLocation();
 
   const onTransistionEnd = (event) => {
-    ReactDOM.render(null, document.getElementById(hook));
+    event.stopPropagation();
+    history.replace(state.background.pathname);
   }
 
   const onClick = (event) => {
     if(event.target.id === 'modal'){
       event.target.style.opacity = 0;
-      setTimeout(onTransistionEnd, 500);
+      setTimeout(() => onTransistionEnd(event), 500);
+      // why does google map cause a transtion???
     }
   }
 
