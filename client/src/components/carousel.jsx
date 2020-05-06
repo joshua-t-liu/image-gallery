@@ -2,6 +2,7 @@ import React from 'react';
 
 import Slide from './slide.jsx';
 import { SlideButton } from './buttons.jsx';
+import { StyledDiv, BorderTop, FlexContainer, FlexContainerCentered, FlexContainerCol, StackZero, SmallFont } from './styles.jsx';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -37,30 +38,37 @@ class Carousel extends React.Component {
     const offset = (this.props.innerWidth < 898) ? { marginRight: '308px' } : {};
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-        {/* buttons */}
-        <div>
+      <FlexContainerCol className='tall'>
+
+        <div>{/* buttons */}
           <SlideButton top={'calc(50% - 12px)'} left={'20px'} right={'auto'} onClick={this.onClickLeft}/>
           <SlideButton top={'calc(50% - 12px)'} left={'auto'} right={'20px'} onClick={this.onClickRight}/>
         </div>
 
-        {/* images */}
-        <div style={{ display: 'flex', flex: '1 1 0', heigh: '100%', position: 'relative', zIndex: 0 }}>
-          <Slide key={center} shift={'0%'} src={imageURLs[center]} zIndex={2}/>
-          <Slide key={right} shift={'100%'} src={imageURLs[right]} zIndex={1}/>
-          <Slide key={left} shift={'-100%'} src={imageURLs[left]} zIndex={1}/>
-        </div>
 
-        {/* footer */}
-        <div style={{ lineHeight: 1.43, display: 'flex', fontSize: '14px', alignItems: 'center', borderTop: '1px solid rgb(134, 144, 153)' }}>
-          <div style={{ padding: '16px', color: 'rgb(255, 255, 255)' }}>
-            <span>{`${this.state.index + 1}/${imageURLs.length}`}</span>
-          </div>
-          <div style={Object.assign({ textAlign: 'center', flex: '1 1 auto', padding: '8px 0px', color: 'rgb(255, 255, 255)' }, offset)}>
-            {[price, rooms].reduce((accum, ele) => accum.concat(<span>{pipe}{ele}</span>), [<span>{address}</span>])}
-          </div>
-        </div>
-      </div>
+        <FlexContainer className='relative tall item'>{/* images */}
+          <StackZero>
+            <Slide key={center} shift={'0%'} src={imageURLs[center]} zIndex={2}/>
+            <Slide key={right} shift={'100%'} src={imageURLs[right]} zIndex={1}/>
+            <Slide key={left} shift={'-100%'} src={imageURLs[left]} zIndex={1}/>
+          </StackZero>
+        </FlexContainer>
+
+
+        <SmallFont className='white'>{/* footer */}
+          <BorderTop color='rgb(134, 144, 153)'>
+              <FlexContainerCentered>
+                <div style={{ padding: '16px' }}>
+                  <span>{`${this.state.index + 1}/${imageURLs.length}`}</span>
+                </div>
+                <div style={Object.assign({ textAlign: 'center', flex: '1 1 auto', padding: '8px 0px' }, offset)}>
+                  {[price, rooms].reduce((accum, ele) => accum.concat(<span>{pipe}{ele}</span>), [<span>{address}</span>])}
+                </div>
+              </FlexContainerCentered>
+          </BorderTop>
+        </SmallFont>
+
+      </FlexContainerCol>
     )
   }
 }

@@ -1,9 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import Modal from './modal.jsx';
 import Header from './header.jsx';
-import ImageContainer from './imageContainer.jsx';
+import ContainerMedia from './containerMedia.jsx';
+import Map from './map.jsx';
+import { FlexContainerCol } from './styles.jsx';
+
 
 class PopUp extends React.Component {
   constructor(props) {
@@ -22,19 +32,22 @@ class PopUp extends React.Component {
 
   render() {
     const { hook, home } = this.props;
-    const style = { display: 'flex', flexDirection: 'column', height: '100%', width: '100%', backgroundColor: 'rgb(255, 255, 255)', fontFamily: 'Arial', overflow: 'hidden', position: 'relative' };
+    const titles = ['Photos', 'Map', 'Street View', 'Schools', 'Crime', 'Commute', 'Shop & Eat'];
+    const style = { backgroundColor: 'rgb(255, 255, 255)' };
 
     if (this.state.innerWidth > 767) Object.assign(style, { margin: '48px', height: 'calc(100% - 96px)', width: 'calc(100% - 96px)', borderRadius: '8px' });
 
     return (
       <Modal hook={hook}>
-        <div style={style}>
+        <FlexContainerCol className='tall wide relative' style={style}>
 
-          <Header hook={hook} titles={['Photos', 'Map', 'Street View', 'Schols', 'Commute', 'Shop & Eat']}/>
+          <Header hook={hook} titles={titles}/>
 
-          <ImageContainer home={home} innerWidth={this.state.innerWidth}/>
+          {/* <ContainerMedia home={home} innerWidth={this.state.innerWidth}/> */}
 
-        </div>
+          <Map />
+
+        </FlexContainerCol>
       </Modal>
     )
   }
