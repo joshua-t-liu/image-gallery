@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 import React from 'react';
 import { BrowserRouter as Router, Route, useLocation, useParams, useRouteMatch } from "react-router-dom";
 
@@ -9,16 +11,14 @@ const ModalSwitch = ({ home }) => {
   const location = useLocation();
   const { id } = useParams();
   const { url } = useRouteMatch();
-
   const background = location.state && location.state.background;
 
   return (
     <div>
-      <Route path={url} children={(
-        <FlexContainer style={{ justifyContent: 'center'}}>
-          <MainImage home={home}/>
-        </FlexContainer>
-      )} />
+      <FlexContainer style={{ justifyContent: 'center'}}>
+        <MainImage home={home}/>
+      </FlexContainer>
+      {/* <div>{JSON.stringify(location)}{url}</div> */}
       {background && <Route path={`${url}/:id`} children={<Container home={home} />} />}
     </div>
   )
@@ -47,4 +47,5 @@ class App extends React.Component {
   }
 };
 
-export default App;
+// export default App;
+export { App, ModalSwitch };

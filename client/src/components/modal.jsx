@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import { StyledModal } from './styles.jsx';

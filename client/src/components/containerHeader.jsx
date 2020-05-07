@@ -5,11 +5,11 @@ import CarouselFixed from './carouselFixed.jsx';
 import { Save, Share, Exit, Nav } from './buttons.jsx';
 import { FlexContainer } from './styles.jsx';
 
-const Header = ({ routes }) => (
+const ContainerHeader = ({ routes }) => (
   <FlexContainer style={{ padding: '8px 8px 0px' }}>
     <FlexContainer className='item' style={{ flexBasis: '0px' }}>
       <CarouselFixed>
-        {routes.map(({ title, path }) => (<Nav title={title} path={path} />))}
+        {routes.map(({ title, path }, idx) => (<Nav key={idx} title={title} path={path} />))}
       </CarouselFixed>
     </FlexContainer>
     <div>
@@ -22,4 +22,4 @@ const Header = ({ routes }) => (
   </FlexContainer>
 )
 
-export default Header;
+export default ContainerHeader;

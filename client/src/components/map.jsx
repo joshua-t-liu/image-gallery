@@ -1,12 +1,21 @@
 import React from 'react';
 import MarkerClusterer from '@google/markerclustererplus';
+// import setupMapAPI from '../helper/map.js';
 
 import { StyledDiv as Div } from './styles.jsx';
-import locations from '../helper/testData.js';
+// import locations from '../helper/testData.js';
 
 class Map extends React.Component {
 
+  // async setupAPI() {
+  //   await new Promise(setupMapAPI);
+  // }
+
   componentDidMount() {
+    // if (!google) {
+    //   this.setupAPI();
+    // }
+
     const { TOP_LEFT, LEFT_BOTTOM } = google.maps.ControlPosition;
     const position = {lat: -28.024, lng: 140.887};
     const map = new google.maps.Map(document.getElementById('map'), {

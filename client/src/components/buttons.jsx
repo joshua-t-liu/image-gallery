@@ -186,7 +186,6 @@ const Tag = ({tag}) => (
 
 const Nav = ({ id, title, path, onClick, selected = false}) => {
   const { state } = useLocation();
-  // const { path } = useRouteMatch();
 
   return (
     <Link to={{ pathname: path, state: state }}>

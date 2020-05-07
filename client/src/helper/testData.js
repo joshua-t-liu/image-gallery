@@ -1,7 +1,6 @@
 const types = ['Theft', 'Assault', 'Arrest', 'Vandalism', 'Burglary'];
 //date, type, description, location
-
-export default [
+const locations = [
   {lat: -31.563910, lng: 147.154312},
   {lat: -33.718234, lng: 150.363181},
   {lat: -33.727111, lng: 150.371124},
@@ -26,3 +25,5 @@ export default [
   {lat: -42.735258, lng: 147.438000},
   {lat: -43.999792, lng: 170.463352}
 ];
+
+export default locations;

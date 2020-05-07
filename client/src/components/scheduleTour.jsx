@@ -58,7 +58,7 @@ const ScheduleTour = (props) => (
             <CarouselFixed style={{ marginLeft: '-4px', marginRight: '-4px' }} >
               {Array(7).fill({ day: 'Tue', date: '5', month: 'May' }).map((slot, idx) => {
                 return (
-                  <div style={{ borderSize: '8px 4px 0px', width: '25%', borderStyle: 'solid', borderColor: 'transparent', boxSizing: 'border-box' }}>
+                  <div key={idx} style={{ borderSize: '8px 4px 0px', width: '25%', borderStyle: 'solid', borderColor: 'transparent', boxSizing: 'border-box' }}>
                     <button style={{ borderRadius: '8px', backgroundColor: 'rgb(255, 255, 255)', padding: '8px', borderWidth: '1px', borderColor: 'rgb(205, 209, 212)', width: '100%', borderStyle: 'solid', lineHeight: 1.4, fontSize: '14px', fontFamily: 'arial', cursor: 'pointer' }}>
                       <div>{slot.day}</div>
                       <div style={{ fontWeight: 'bold', lineHeight: 1.2, fontSize: '20px' }}>{idx}</div>

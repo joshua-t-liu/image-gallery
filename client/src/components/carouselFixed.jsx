@@ -24,25 +24,26 @@ class CarouselFixed extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.onShift = this.onShift.bind(this);
     this.resize = this.resize.bind(this);
+    this.ref = React.createRef();
   }
 
   componentDidMount() {
-    this.carousel = document.getElementById('carousel-fixed');
-    this.resize();
     window.addEventListener('resize', this.resize);
+    this.resize();
   }
   resize(event) {
     let size = 0;
-    this.carousel.childNodes.forEach(child => {size += child.scrollWidth});
-    this.carousel.style.transform = 'translateX(0)';
-    this.setState({ clipped: (this.carousel.scrollWidth - this.carousel.clientWidth) > 0, max: 100 * (size / this.carousel.clientWidth - 1), shift: 0 })
+    const carousel = this.ref.current;
+    carousel.childNodes.forEach(child => {size += child.scrollWidth});
+    carousel.style.transform = 'translateX(0)';
+    this.setState({ clipped: (carousel.scrollWidth - carousel.clientWidth) > 0, max: 100 * (size / carousel.clientWidth - 1), shift: 0 })
   }
 
   onShift(dir = 1) {
     const component = this;
     const range = (val) => (Math.max(0, Math.min(val, this.state.max)));
     return function (event) {
-      const carousel = component.carousel;
+      const carousel = component.ref.current;
       component.setState((state) => ({ shift: range(state.shift + dir * 100) }), () => {carousel.style.transform = `translateX(-${component.state.shift}%)`});
     }
   }
@@ -92,7 +93,7 @@ class CarouselFixed extends React.Component {
         }
       </Absolute>}
 
-      <FlexContainer id='carousel-fixed' style={{ overflow: 'visible' }}>
+      <FlexContainer ref={this.ref} style={{ overflow: 'visible' }}>
         {React.Children.map(this.props.children, (child, idx) => {
           const props = {
             id: idx,

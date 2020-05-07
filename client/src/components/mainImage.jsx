@@ -7,11 +7,11 @@ import { StyledMainImage, Absolute, FlexContainer, StyledDiv as Div } from './st
 const MainImage = ({ home }) => {
   const { imageURLs, tagsProcessed } = home;
   const location = useLocation();
-  const { path } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   return (
       <Div className='relative' style={{ height: '500px', maxHeight: 'calc(100vh - 275px)', minHeight: '275px', borderRadius: '8px', width: '992px' }}>
-        <Link to={{ pathname: `${path}/Photos`, state: { background: location } }}>
+        <Link to={{ pathname: `${url}/photos`, state: { background: location } }}>
           <Absolute className='tall wide'>
             <picture>
               <source></source>
@@ -27,7 +27,7 @@ const MainImage = ({ home }) => {
         <Absolute className='wide' style={{ padding: '8px 8px 0px', zIndex: 1, boxSizing: 'border-box' }}>
           <FlexContainer>
             <Div className='item'>
-              {tagsProcessed.map(tag => (<Tag tag={tag}/>))}
+              {tagsProcessed.map((tag, idx) => (<Tag key={idx} tag={tag}/>))}
             </Div>
             <div>
               <ThemeProvider theme={{ color: 'rgb(0, 120, 130)', borderStyle: 'none' }}>
