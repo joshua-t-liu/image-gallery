@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for containerMedia.jsx</title>
+    <title>Code coverage report for streetView.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> containerMedia.jsx</h1>
+        <h1><a href="index.html">All files</a> streetView.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -88,69 +88,72 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import styled from 'styled-components';
+// import setupMapAPI from '../helper/map.js';
 &nbsp;
-import Carousel from './carousel.jsx';
-import ScheduleTour from './scheduleTour.jsx';
-import { Schedule } from './buttons.jsx';
-import { StyledDiv as Div, BorderTop, FlexContainer, FlexContainerCol, Absolute } from './styles.jsx';
+import { StyledDiv as Div } from './styles.jsx';
 &nbsp;
-const ContainerMedia = ({ home, innerWidth }) =&gt; (
-  &lt;FlexContainerCol className='tall'&gt;
-    &lt;FlexContainer className='item' backgroundColor='rgb(0, 0, 0)'&gt;
-      &lt;BorderTop className='relative item' color='rgb(59, 65, 68)'&gt;
-        &lt;Carousel home={home} innerWidth={innerWidth}/&gt;
-      &lt;/BorderTop&gt;
-      {(innerWidth &gt; 898)
-        ? (
-        &lt;Div className='relative item' flex='0 0 342px'&gt;
-          &lt;Absolute right='8px' top='8px' bottom='16px' style={{ width: '332px', borderRadius: '8px', backgroundColor: 'rgb(255,255,255)', height: 'calc(100% -96px)', overflowY: 'auto' }}&gt;
-            &lt;ScheduleTour /&gt;
-          &lt;/Absolute&gt;
-        &lt;/Div&gt;
-        ) : (
-<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;Absolute right='4px' bottom='6px'&gt;</span>
-          &lt;Schedule width={'300px'} padding={'4 0'} /&gt;
-        &lt;/Absolute&gt;
-        )
-      }
-    &lt;/FlexContainer&gt;
-  &lt;/FlexContainerCol&gt;
-)
+class StreetView extends React.Component {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props){
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+<span class="cstat-no" title="statement not covered" >    this.ref = React.createRef();</span>
+  }
 &nbsp;
-export default ContainerMedia;</pre></td></tr></table></pre>
+<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
+<span class="cstat-no" title="statement not covered" >    if (typeof google !== 'undefined') {</span>
+      const { TOP_LEFT, LEFT_BOTTOM } = <span class="cstat-no" title="statement not covered" >google.maps.ControlPosition;</span>
+      const position = <span class="cstat-no" title="statement not covered" >{lat: 33.7490, lng: 84.3880};</span>
+      const streetView = <span class="cstat-no" title="statement not covered" >new google.maps.StreetViewPanorama(this.ref.current, {</span>
+        position: {lat: 37.869260, lng: -122.254811},
+        pov: {heading: 165, pitch: 0},
+        zoom: 1,
+        zoomControlOptions: { position: LEFT_BOTTOM },
+      });
+<span class="cstat-no" title="statement not covered" >      streetView.setVisible(true);</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;Div className='tall' ref={this.ref}&gt;&lt;/Div&gt;
+    )
+  }
+}
+&nbsp;
+export default StreetView;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

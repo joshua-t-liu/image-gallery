@@ -2,7 +2,7 @@ import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import React from 'react';
 
-import { ModalSwitch } from '../client/src/components/app.jsx';
+import { ModalPopUp } from '../client/src/components/app.jsx';
 import MainImage from '../client/src/components/mainImage.jsx';
 import Carousel from '../client/src/components/carousel.jsx';
 import Container from '../client/src/components/container.jsx';
@@ -36,7 +36,7 @@ const { Response } = jest.requireActual('node-fetch');
 describe('App', () => {
   const wrapper = mount(
     <MemoryRouter initialEntries={['/homes/1']}>
-      <ModalSwitch home={home}/>
+      <ModalPopUp home={home}/>
     </MemoryRouter>
   );
 
@@ -55,7 +55,7 @@ describe('Modal popup', () => {
   it('disappears after clicking the exit button', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/homes/1']}>
-        <ModalSwitch home={home}/>
+        <ModalPopUp home={home}/>
       </MemoryRouter>
     );
     wrapper.find('a').simulate('click', { button: 0});
@@ -67,7 +67,7 @@ describe('Modal popup', () => {
   it('disappears after clicking outside the popup', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/homes/1']}>
-        <ModalSwitch home={home}/>
+        <ModalPopUp home={home}/>
       </MemoryRouter>
     );
     wrapper.find('a').simulate('click', { button: 0});
@@ -120,7 +120,6 @@ describe('Container', () => {
         )
         expect(wrapper.find(ContainerMedia)).toHaveLength(1);
         wrapper.find(Nav).at(1).simulate('click', { button: 0 });
-        expect(wrapper.getDOMNode()).toBe({});
         expect(wrapper.find(ContainerMap)).toHaveLength(1);
     });
   });

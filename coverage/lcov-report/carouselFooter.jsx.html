@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for slide.jsx</title>
+    <title>Code coverage report for carouselFooter.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> slide.jsx</h1>
+        <h1><a href="index.html">All files</a> carouselFooter.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -73,13 +73,25 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -89,23 +101,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
 &nbsp;
-import { Absolute, StyledMainImage } from './styles.jsx';
+import { StyledDiv as Div, FlexContainer } from './styles.jsx';
 &nbsp;
-const Slide = ({shift, src, zIndex}) =&gt; (
+const CarouselFooter = ({ home, index, innerWidth }) =&gt; {
 &nbsp;
-  &lt;Absolute left='0' top='0' right='0' bottom='0' style={{ transform: `translateX(${shift})`, zIndex: zIndex }}&gt;
-    &lt;picture style={{ height: '100%' }}&gt;
-      {/* source have srcset and media */}
-      &lt;source&gt;&lt;/source&gt;
-      &lt;StyledMainImage src={src} style={{ objectFit: 'contain', cursor: 'auto' }}/&gt;
-    &lt;/picture&gt;
-  &lt;/Absolute&gt;
+  const { address, price, rooms, imageURLs } = home;
+  const pipe = &lt;span style={{ margin: '0px 8px' }}&gt;|&lt;/span&gt;
+  const offset = (innerWidth &lt; 898) ? <span class="branch-0 cbranch-no" title="branch not covered" >{ marginRight: '308px' } </span>: {};
 &nbsp;
-)
+  return (
+    &lt;FlexContainer className='centered white small-font'&gt;
+      &lt;div style={{ padding: '16px' }}&gt;
+        &lt;span&gt;{`${index + 1}/${imageURLs.length}`}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;Div className='item' style={Object.assign({ textAlign: 'center', padding: '8px 0px' }, offset)}&gt;
+        &lt;span&gt;{address}&lt;/span&gt;
+        &lt;span&gt;{pipe}{price}&lt;/span&gt;
+        &lt;span&gt;{pipe}{rooms}&lt;/span&gt;
+      &lt;/Div&gt;
+    &lt;/FlexContainer&gt;
+  )
+}
 &nbsp;
-export default Slide;</pre></td></tr></table></pre>
+export default CarouselFooter;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

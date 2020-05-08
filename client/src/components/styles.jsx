@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
+const Div = styled.div`
   font-family: arial;
   overflow: hidden;
   &.tall {
@@ -15,7 +15,6 @@ const StyledDiv = styled.div`
   &.item {
     flex: ${({ flex }) => flex || '1 1 auto'};
   }
-  background-color: ${({ backgroundColor }) => backgroundColor || ''};
   &.small-font {
     font-size: 14px;
     line-height: 1.43;
@@ -23,28 +22,40 @@ const StyledDiv = styled.div`
   &.white {
     color: rgb(255, 255, 255);
   }
+  &.container {
+    @media (min-width: 767px) {
+      margin: 48px;
+      height: calc(100% - 96px);
+      width: calc(100% - 96px);
+      border-radius: 8px;
+    }
+  }
+  }
 `;
 
-const Absolute = styled(StyledDiv)`
+const Absolute = styled(Div)`
   position: absolute;
   top: ${({ top }) => top || ''};
   bottom: ${({ bottom }) => bottom || ''};
   left: ${({ left }) => left || ''};
   right: ${({ right }) => right || ''};
+  &.collapsed {
+    top: auto;
+  }
 `;
 
-const BorderTop = styled(StyledDiv)`
+const BorderTop = styled(Div)`
   border-top: 1px solid ${({ color }) => color};
 `;
 
-const FlexContainer = styled(StyledDiv)`
+const Flexbox = styled(Div)`
   display: flex;
   &.centered {
     align-items: center;
   }
 `;
 
-const FlexContainerCol = styled(FlexContainer)`
+const FlexboxCol = styled(Flexbox)`
   flex-direction: column;
 `;
 
@@ -60,14 +71,25 @@ const StyledModal = styled.div`
   transition: opacity 0.5s;
 `;
 
-const StyledMainImage = styled.img`
+const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
   cursor: pointer;
   &.zoom:hover {
     transform: scale(1.04);
-  }
 `;
 
-export { StyledModal, StyledDiv, Absolute, BorderTop, FlexContainer, FlexContainerCol, StyledMainImage };
+const Input = styled.input`
+border-radius: 8px;
+line-height: 1.5;
+font-size: 16px;
+border-color: rgb(205, 209, 212);
+border-width: 1px;
+border-style: solid;
+padding: 8px;
+width: 100%;
+box-sizing: border-box
+`;
+
+export { StyledModal, Div, Absolute, BorderTop, Flexbox, FlexboxCol, Image, Input };

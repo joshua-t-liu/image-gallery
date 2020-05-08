@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
-import { Switch, Route, useRouteMatch, useLocation } from 'react-router-dom';
-
-import Modal from './modal.jsx';
+import Modal from '../other/modal.jsx';
 import ContainerHeader from './containerHeader.jsx';
 import ContainerMedia from './containerMedia.jsx';
 import ContainerMap from './containerMap.jsx';
-import { FlexContainerCol } from './styles.jsx';
+import ContainerStreetView from './containerStreetView.jsx';
+import ContainerSchools from './containerSchools.jsx';
+import { FlexboxCol, Div } from '../styles.jsx';
 
+const position = {lat: 37.869260, lng: -122.254811};
 
-const Container = ({ home }) => {
+const ContainerRouter = ({ home }) => {
+
   const [innerWidth, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -27,17 +30,17 @@ const Container = ({ home }) => {
     {
       title: 'Map',
       path: path.replace(':id', 'mapView'),
-      main: <ContainerMap />,
+      main: <ContainerMap innerWidth={innerWidth} position={position} />,
     },
     {
       title: 'Street View',
       path: path.replace(':id', 'streetView'),
-      main: <div></div>,
+      main: <ContainerStreetView innerWidth={innerWidth} position={position} />,
     },
     {
       title: 'Schools',
       path: path.replace(':id', 'schools'),
-      main: <div></div>,
+      main: <ContainerSchools position={position} />,
     },
     {
       title: 'Crime',
@@ -56,21 +59,18 @@ const Container = ({ home }) => {
     },
   ];
 
-  const style = { backgroundColor: 'rgb(255, 255, 255)' };
-
-  if (innerWidth > 767) Object.assign(style, { margin: '48px', height: 'calc(100% - 96px)', width: 'calc(100% - 96px)', borderRadius: '8px' });
-
-  const location= useLocation();
   return (
     <Modal>
-      <FlexContainerCol className='tall wide relative' style={style}>
+      <FlexboxCol className='tall wide relative container' style={{ backgroundColor: 'white' }}>
         <ContainerHeader routes={routes} />
-        <Switch>
-          {routes.map(({ path, main }, idx) => <Route key={idx} path={path} children={main} />)}
-        </Switch>
-      </FlexContainerCol>
+        <Div className='item'>
+          <Switch>
+            {routes.map(({ path, main }, idx) => <Route key={idx} path={path} children={main} />)}
+          </Switch>
+        </Div>
+      </FlexboxCol>
     </Modal>
   )
 }
 
-export default Container;
+export default ContainerRouter;

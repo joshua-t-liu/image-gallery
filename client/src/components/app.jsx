@@ -1,51 +1,26 @@
-import fetch from 'node-fetch';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import React from 'react';
-import { BrowserRouter as Router, Route, useLocation, useParams, useRouteMatch } from "react-router-dom";
+import ImageGallery from './image/imageGallery.jsx';
 
-import MainImage from './mainImage.jsx';
-import Container from './container.jsx';
-import { FlexContainer } from './styles.jsx';
+const initial = { imageURLs: [], tagsProcessed: [] };
 
-const ModalSwitch = ({ home }) => {
-  const location = useLocation();
-  const { id } = useParams();
-  const { url } = useRouteMatch();
-  const background = location.state && location.state.background;
+const App = () => {
+  const [home, setHome] = useState(initial);
+
+  useEffect(() => {
+    const pathname = window.location.pathname;
+    fetch(`${pathname}/images`)
+    .then(response => response.json())
+    .then(home => setHome(home))
+    .catch(err => console.error(err));
+  }, []);
 
   return (
-    <div>
-      <FlexContainer style={{ justifyContent: 'center'}}>
-        <MainImage home={home}/>
-      </FlexContainer>
-      {/* <div>{JSON.stringify(location)}{url}</div> */}
-      {background && <Route path={`${url}/:id`} children={<Container home={home} />} />}
-    </div>
-  )
-}
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { home: { imageURLs: [], tagsProcessed: [] } }
-    this.pathname = window.location.pathname;
-  }
-
-  componentDidMount() {
-    fetch(`${this.pathname}/images`)
-    .then(response => response.json())
-    .then(home => this.setState({ home }))
-    .catch(err => console.error(err));
-  }
-
-  render() {
-    return (
-      <Router>
-        <Route path='/homes/:id' children={<ModalSwitch home={this.state.home} />} />
-      </Router>
-    );
-  }
+    <Router>
+      <Route path='/homes/:id' children={<ImageGallery home={home} />} />
+    </Router>
+  );
 };
 
-// export default App;
-export { App, ModalSwitch };
+export default App;

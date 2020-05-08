@@ -1,44 +1,43 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { Link, useLocation, useRouteMatch } from 'react-router-dom';
-import { Save, Share, Gallery, Tag } from './buttons.jsx';
-import { StyledMainImage, Absolute, FlexContainer, StyledDiv as Div } from './styles.jsx';
+import { SaveButton, ShareButton, GalleryButton, Tag } from '../buttons.jsx';
+import { Image, Absolute, Flexbox, Div } from '../styles.jsx';
 
-const MainImage = ({ home }) => {
+const ImageTile = ({ home }) => {
   const { imageURLs, tagsProcessed } = home;
   const location = useLocation();
   const { url } = useRouteMatch();
 
   return (
-      <Div className='relative' style={{ height: '500px', maxHeight: 'calc(100vh - 275px)', minHeight: '275px', borderRadius: '8px', width: '992px' }}>
+      <Div className='relative' style={{ height: '500px', maxHeight: 'calc(100vh - 275px)', minHeight: '275px', width: '992px', borderRadius: '8px' }}>
+
         <Link to={{ pathname: `${url}/photos`, state: { background: location } }}>
           <Absolute className='tall wide'>
             <picture>
               <source></source>
-              <StyledMainImage className='zoom' src={imageURLs[0]} />
+              <Image className='zoom' src={imageURLs[0]} />
             </picture>
           </Absolute>
-
           <Absolute right='0px' bottom='8px' style={{ zIndex: 1, paddingRight: '8px' }}>
-            <Gallery imageCount={imageURLs.length} />
+            <GalleryButton title={imageURLs.length} />
           </Absolute>
         </Link>
 
         <Absolute className='wide' style={{ padding: '8px 8px 0px', zIndex: 1, boxSizing: 'border-box' }}>
-          <FlexContainer>
-            <Div className='item'>
-              {tagsProcessed.map((tag, idx) => (<Tag key={idx} tag={tag}/>))}
-            </Div>
+          <Flexbox>
+            <Div className='item' children={tagsProcessed.map((tag, idx) => (<Tag key={idx} tag={tag}/>))} />
             <div>
               <ThemeProvider theme={{ color: 'rgb(0, 120, 130)', borderStyle: 'none' }}>
-                <Save />
-                <Share />
+                <SaveButton />
+                <ShareButton marginLeft='16px' />
               </ThemeProvider>
             </div>
-          </FlexContainer>
+          </Flexbox>
         </Absolute>
+
       </Div>
   )
-}
+};
 
-export default MainImage;
+export default ImageTile;

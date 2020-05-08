@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.78% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -101,17 +101,8 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -121,8 +112,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -156,19 +145,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
 &nbsp;
 import Slide from './slide.jsx';
 import { SlideButton } from './buttons.jsx';
+import CarouselFooter from './carouselFooter.jsx';
 import { StyledDiv as Div, BorderTop, FlexContainer, FlexContainerCol } from './styles.jsx';
 &nbsp;
 const Carousel = ({ home, innerWidth }) =&gt; {
@@ -178,8 +159,6 @@ const Carousel = ({ home, innerWidth }) =&gt; {
   const { address, price, rooms, imageURLs } = home;
   const left = (index -1 &lt; 0) ? imageURLs.length - 1 : index - 1;
   const right = (index + 1) % imageURLs.length;
-  const pipe = &lt;span style={{ margin: '0px 8px' }}&gt;|&lt;/span&gt;
-  const offset = (innerWidth &lt; 898) ? <span class="branch-0 cbranch-no" title="branch not covered" >{ marginRight: '308px' } </span>: {};
 &nbsp;
   const onClick  = function(left = true) {
     return function(event) {
@@ -204,16 +183,7 @@ const Carousel = ({ home, innerWidth }) =&gt; {
           &lt;Slide key={left} shift={'-100%'} src={imageURLs[left]} zIndex={1}/&gt;
       &lt;/FlexContainer&gt;
       &lt;BorderTop color='rgb(134, 144, 153)'&gt;
-        &lt;FlexContainer className='centered white small-font'&gt;
-          &lt;div style={{ padding: '16px' }}&gt;
-            &lt;span&gt;{`${index + 1}/${imageURLs.length}`}&lt;/span&gt;
-          &lt;/div&gt;
-          &lt;Div className='item' style={Object.assign({ textAlign: 'center', padding: '8px 0px' }, offset)}&gt;
-            &lt;span&gt;{address}&lt;/span&gt;
-            &lt;span&gt;{pipe}{price}&lt;/span&gt;
-            &lt;span&gt;{pipe}{rooms}&lt;/span&gt;
-          &lt;/Div&gt;
-        &lt;/FlexContainer&gt;
+        &lt;CarouselFooter home={home} innerWidth={innerWidth} index={index} /&gt;
       &lt;/BorderTop&gt;
     &lt;/FlexContainerCol&gt;
   )
@@ -226,7 +196,7 @@ export default Carousel;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 07 2020 00:42:23 GMT-0700 (Pacific Daylight Time)
+                at Thu May 07 2020 15:04:21 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="prettify.js"></script>

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.31% </span>
+                <span class="strong">91.67% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/13</span>
+                <span class='fraction'>11/12</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -143,20 +143,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,17 +189,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -208,14 +208,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useState } from 'react';
-&nbsp;
-import { Switch, Route, useRouteMatch, useLocation } from 'react-router-dom';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 &nbsp;
 import Modal from './modal.jsx';
 import ContainerHeader from './containerHeader.jsx';
 import ContainerMedia from './containerMedia.jsx';
 import ContainerMap from './containerMap.jsx';
-import { FlexContainerCol } from './styles.jsx';
+import ContainerStreetView from './containerStreetView.jsx';
+import ContainerSchools from './containerSchools.jsx';
+import { FlexContainerCol, StyledDiv as Div } from './styles.jsx';
 &nbsp;
 &nbsp;
 const Container = ({ home }) =&gt; {
@@ -226,6 +227,8 @@ const Container = ({ home }) =&gt; {
   });
 &nbsp;
   const { path } = useRouteMatch();
+  const style = { backgroundColor: 'rgb(255, 255, 255)' };
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (innerWidth &gt; 767) Object.assign(style, { margin: '48px', height: 'calc(100% - 96px)', width: 'calc(100% - 96px)', borderRadius: '8px' });
 &nbsp;
   const routes = [
     {
@@ -241,12 +244,12 @@ const Container = ({ home }) =&gt; {
     {
       title: 'Street View',
       path: path.replace(':id', 'streetView'),
-      main: &lt;div&gt;&lt;/div&gt;,
+      main: &lt;ContainerStreetView /&gt;,
     },
     {
       title: 'Schools',
       path: path.replace(':id', 'schools'),
-      main: &lt;div&gt;&lt;/div&gt;,
+      main: &lt;ContainerSchools /&gt;,
     },
     {
       title: 'Crime',
@@ -265,18 +268,15 @@ const Container = ({ home }) =&gt; {
     },
   ];
 &nbsp;
-  const style = { backgroundColor: 'rgb(255, 255, 255)' };
-&nbsp;
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (innerWidth &gt; 767) Object.assign(style, { margin: '48px', height: 'calc(100% - 96px)', width: 'calc(100% - 96px)', borderRadius: '8px' });
-&nbsp;
-  const location= useLocation();
   return (
     &lt;Modal&gt;
       &lt;FlexContainerCol className='tall wide relative' style={style}&gt;
         &lt;ContainerHeader routes={routes} /&gt;
-        &lt;Switch&gt;
-          {routes.map(({ path, main }, idx) =&gt; &lt;Route key={idx} path={path} children={main} /&gt;)}
-        &lt;/Switch&gt;
+        &lt;Div className='item'&gt;
+          &lt;Switch&gt;
+            {routes.map(({ path, main }, idx) =&gt; &lt;Route key={idx} path={path} children={main} /&gt;)}
+          &lt;/Switch&gt;
+        &lt;/Div&gt;
       &lt;/FlexContainerCol&gt;
     &lt;/Modal&gt;
   )
@@ -289,7 +289,7 @@ export default Container;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 07 2020 00:42:23 GMT-0700 (Pacific Daylight Time)
+                at Thu May 07 2020 15:04:21 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="prettify.js"></script>

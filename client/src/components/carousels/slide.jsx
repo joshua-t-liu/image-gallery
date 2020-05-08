@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Absolute, StyledMainImage } from './styles.jsx';
+import { Absolute, Image } from '../styles.jsx';
 
 const Slide = ({shift, src, zIndex}) => (
 
@@ -8,7 +8,7 @@ const Slide = ({shift, src, zIndex}) => (
     <picture style={{ height: '100%' }}>
       {/* source have srcset and media */}
       <source></source>
-      <StyledMainImage src={src} style={{ objectFit: 'contain', cursor: 'auto' }}/>
+      <Image src={src} style={{ objectFit: 'contain', cursor: 'auto' }}/>
     </picture>
   </Absolute>
 
