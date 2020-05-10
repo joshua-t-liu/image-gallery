@@ -32,10 +32,15 @@ const RoundButton = styled(BasicButton)`
 `;
 
 const StyledCarouselButton = styled(RoundButton)`
+  display: absolute;
   height: 48px;
   width: 48px;
   border-style: none;
   background-color: rgb(59, 65, 68);
+  top: calc(50% - 12px):
+  left: ${({ left }) => left || 'auto'};
+  right: ${({ right }) => right || 'auto'};
+  z-index: 1;
   &:hover {
     background-color: rgb(134, 144, 153);
     ${Path} {
@@ -277,4 +282,4 @@ const NavButton = ({ id, title, pathname, onClick, selected = false}) => {
   )
 }
 
-export { SaveButton, ShareButton, SlideButtonL, SlideButtonR, CarouselButtonL, CarouselButtonR, GalleryButton, ExitButton, NavButton, ScheduleButton, Tag, TourTypeButton, ScheduleRight, ScheduleLeft };
+export { BasicButton, RoundButton, Path, SaveButton, ShareButton, SlideButtonL, SlideButtonR, CarouselButtonL, CarouselButtonR, GalleryButton, ExitButton, NavButton, StyledNavButton, ScheduleButton, Tag, TourTypeButton, ScheduleRight, ScheduleLeft };

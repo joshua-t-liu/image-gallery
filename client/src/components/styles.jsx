@@ -39,6 +39,18 @@ const Absolute = styled(Div)`
   bottom: ${({ bottom }) => bottom || ''};
   left: ${({ left }) => left || ''};
   right: ${({ right }) => right || ''};
+  &.position-form {
+    right: 8px;
+    top: 8px;
+    bottom: 16px;
+    height: 'calc(100% -96px)';
+    width: 332px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto;
+    z-index: 100;
+    border: 1px solid rgb(232, 233, 234);
+  }
   &.collapsed {
     top: auto;
   }
@@ -57,6 +69,10 @@ const Flexbox = styled(Div)`
 
 const FlexboxCol = styled(Flexbox)`
   flex-direction: column;
+`;
+
+const FlexItem = styled(Div)`
+  flex: 1 1 auto;
 `;
 
 const StyledModal = styled.div`
@@ -92,4 +108,4 @@ width: 100%;
 box-sizing: border-box
 `;
 
-export { StyledModal, Div, Absolute, BorderTop, Flexbox, FlexboxCol, Image, Input };
+export { StyledModal, Div, Absolute, BorderTop, Flexbox, FlexboxCol, FlexItem, Image, Input };

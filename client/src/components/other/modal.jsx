@@ -2,6 +2,7 @@ import React, { createRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { StyledModal } from '../styles.jsx';
+import { ModalContainer } from '../stylesNew.jsx';
 
 const Modal = ({ children }) => {
   const history = useHistory();
@@ -21,9 +22,9 @@ const Modal = ({ children }) => {
   }
 
   return (
-    <StyledModal ref={ref} onClick={onClick} onTransitionEnd={onTransistionEnd} >
+    <ModalContainer ref={ref} onClick={onClick} onTransitionEnd={onTransistionEnd} >
       {children}
-    </StyledModal>
+    </ModalContainer>
   )
 }
 

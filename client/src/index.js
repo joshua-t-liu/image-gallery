@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app.jsx';
+import App from './components/App';
 import setupMapAPI from './helper/map.js';
 
 const imageGallery = document.createElement('div');
