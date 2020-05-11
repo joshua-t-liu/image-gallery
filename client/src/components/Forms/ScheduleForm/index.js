@@ -1,3 +1,3 @@
-import ScheduleForm from './ScheduleForm.jsx';
+import ScheduleForm from './ScheduleForm';
 
 export default ScheduleForm;

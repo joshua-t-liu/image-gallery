@@ -17,9 +17,13 @@ export default React.forwardRef(({ children, onClick, selected }, ref) => {
         {React.Children.map(children, (child, idx) => {
           return React.cloneElement(child, {
             id: idx,
-            className: 'item',
             style: Object.assign({}, child.props.style, { flexShrink: 0 }),
-            onClick: onClick,
+            onClick: (event) => {
+              if (child.props.onClick) {
+                child.props.onClick(event)
+              };
+              onClick(event);
+            },
             selected: selected === idx,
           });
         })}

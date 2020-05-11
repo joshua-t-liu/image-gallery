@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
-import MapEmbed from './MapEmbed.jsx';
+import MapEmbed from './MapEmbed';
 import SchoolForm from '../Forms/SchoolForm';
-import { Div, Absolute } from '../styles.jsx';
-import schools from '../Forms/SchoolForm/dummyData.js';
+import schools from '../Forms/SchoolForm/dummyData';
 
 const MediaSchool = styled.div`
   position: relative;
@@ -27,14 +26,35 @@ const Sidebar = styled.div`
   }
 `;
 
+const schoolIcon = 'https://www.trulia.com/images/txl3R/map_markers/schools/SchoolDotIcon.svg';
+const assignedIcon = 'https://www.trulia.com/images/txl3R/map_markers/schools/AssignedSchoolDotIcon.svg';
+
 export default ({ position }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const [typeFilter, setType] = useState('Assigned');
+  const [levelFilter, setLevel] = useState('All Grades');
+
+  const filter = () => (
+    schools.filter(school => {
+      const { level, type } = school;
+      if (type === typeFilter || typeFilter === 'All') {
+        if (level === levelFilter || levelFilter === 'All Grades') {
+          return true;
+        }
+      }
+      return false;
+    })
+  );
+
+  const filteredSchools = useMemo(filter, [typeFilter, levelFilter]);
+  const markers = filteredSchools.map(({ school, position, type }) => ({ position, icon : type === 'Assigned' ? assignedIcon : schoolIcon, school }));
+
   return (
     <MediaSchool>
-      <MapEmbed position={position} />
+      <MapEmbed position={position} markers={markers} />
       <Sidebar className={collapsed ? 'collapsed' : ''}>
-        <SchoolForm schools={schools} collapsed={collapsed} onClick={() => setCollapsed(!collapsed)}/>
+        <SchoolForm schools={filteredSchools} collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)} typeFilter={typeFilter} setType={setType} levelFilter={levelFilter} setLevel={setLevel} />
       </Sidebar>
     </MediaSchool>
   );
-}
+};

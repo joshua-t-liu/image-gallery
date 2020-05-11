@@ -1,3 +1,3 @@
-import SchoolForm from './SchoolForm.jsx';
+import SchoolForm from './SchoolForm';
 
 export default SchoolForm;

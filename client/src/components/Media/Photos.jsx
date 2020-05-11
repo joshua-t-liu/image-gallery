@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Carousel from '../Carousel';
-import ResponsiveScheduleForm from './ResponsiveScheduleForm.jsx';
+import ResponsiveScheduleForm from './ResponsiveScheduleForm';
 
 const MediaPhotos = styled.div`
   position: relative;
@@ -23,8 +23,8 @@ const CarouselContainer = styled.div`
 export default ({ home, innerWidth }) => (
   <MediaPhotos>
       <CarouselContainer>
-        <Carousel home={home} />
+        <Carousel home={home} innerWidth={innerWidth} />
       </CarouselContainer>
-      <ResponsiveScheduleForm innerWidth={innerWidth}/>
+      <ResponsiveScheduleForm innerWidth={innerWidth} />
   </MediaPhotos>
 );

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Dot, Divider } from '../../other/auxilliary.jsx';
+import { Dot, Divider } from '../../Other/Auxilliary';
 
 const SchoolList = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
   padding: 0 8px;
+  overflow-x: hidden;
 `;
 
 const Row = styled.li`
@@ -19,6 +20,7 @@ const School = styled.div`
   border-style: solid;
   border-color: transparent;
   box-sizing: border-box;
+  white-space: nowrap;
 `;
 
 const SchoolName = styled.div`
@@ -87,18 +89,24 @@ const SchoolInfo = ({ school, address, grades, size, distance }) => (
   </School>
 )
 
-export default ({ schools, collapsed }) => (
+export default ({ schools, collapsed, typeFilter, levelFilter }) => (
   <SchoolList>
     <ul style={{ listStyle: 'none', padding: 0 }}>
-      {schools.map(({ school, rating, address, grades, size, distance }, idx) => (
-        <Row>
-          <div style={{ display: 'flex' }}>
-            <SchoolRating rating={rating} />
-            <SchoolInfo school={school} address={address} grades={grades} size={size} distance={distance} />
-          </div>
-          <Divider />
-        </Row>
-      ))}
+      {schools.map(({ school, rating, address, grades, size, distance, type, level, assigned }, idx) => {
+        if (type === typeFilter || typeFilter === 'All' || (type === 'Assigned' && typeFilter === 'Public')) {
+          if (level === levelFilter || levelFilter === 'All Grades') {
+            return (
+              <Row key={idx}>
+                <div style={{ display: 'flex' }}>
+                  <SchoolRating rating={rating} />
+                  <SchoolInfo school={school} address={address} grades={grades} size={size} distance={distance} />
+                </div>
+                <Divider />
+              </Row>
+            );
+          };
+        };
+      })}
     </ul>
   </SchoolList>
 );

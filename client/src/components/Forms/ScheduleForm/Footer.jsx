@@ -23,8 +23,10 @@ const warning = 'Public Health Advisory';
 
 const disclosure = 'By pressing Schedule A Tour, you agree that Trulia and real estate professionals may contact you via phone/text about your inquiry, which may involve the use of automated means. You are not required to consent as a condition of purchasing any property, goods or services. Message/data rates may apply. You also agree to our Terms of Use  Trulia does not endorse any real estate professionals ';
 
-export default () => (
-  <React.Fragment>
+export default () => {
+
+  return (
+  <>
     <Advisory>
       <AdvisoryIcon>
         <svg className='svg' viewBox='0 0 32 32' style={{ width: '24px', height: '24px' }}>
@@ -39,5 +41,6 @@ export default () => (
     <Disclosure>
       <span>{disclosure}</span>
     </Disclosure>
-  </React.Fragment>
+  </>
 );
+}

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
-import ProductPage from './ProductPage.jsx';
+import ProductPage from './ProductPage';
 
 const initial = { imageURLs: [], tagsProcessed: [] };
 
-const App = () => {
+export default () => {
   const [home, setHome] = useState(initial);
 
   useEffect(() => {
@@ -22,5 +21,3 @@ const App = () => {
     </Router>
   );
 };
-
-export default App;

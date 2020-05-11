@@ -1,6 +1,6 @@
-import Photos from './Photos.jsx';
-import Map from './Map.jsx';
-import StreetView from './StreetView.jsx';
-import Schools from './Schools.jsx';
+import Photos from './Photos';
+import Map from './Map';
+import StreetView from './StreetView';
+import Schools from './Schools';
 
 export default { Photos, Map, StreetView, Schools };

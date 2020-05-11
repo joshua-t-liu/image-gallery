@@ -19,17 +19,21 @@ const CollapseIcon = styled.div`
 
 const header = 'Schools';
 
-const Collapse = ({ onClick }) => (
-  <CollapseIcon onClick={onClick}>
-    <svg className="svg" viewBox="0 0 32 32">
-      <path d="M15.961 18.183l7.056-7.147 1.893 1.868-8.951 9.068-8.927-9.069 1.896-1.866z" fill="#869099"></path>
-    </svg>
-  </CollapseIcon>
-);
+const Collapse = ({ onClick, collapsed }) => {
+  const collapsedIcon = 'M15.961 18.183l7.056-7.147 1.893 1.868-8.951 9.068-8.927-9.069 1.896-1.866z';
+  const expandIcon = 'M15.98 14.825l-7.055 7.147-1.893-1.869 8.951-9.067 8.927 9.069-1.896 1.866z';
+  return (
+    <CollapseIcon onClick={onClick}>
+      <svg className="svg" viewBox="0 0 32 32">
+        <path d={collapsed ? expandIcon : collapsedIcon} fill="#869099"></path>
+      </svg>
+    </CollapseIcon>
+  );
+};
 
-export default ({ onClick }) => (
+export default ({ onClick, collapsed }) => (
   <Header>
     <Title>{header}</Title>
-    {onClick && <Collapse onClick={onClick} />}
+    {onClick && <Collapse onClick={onClick} collapsed={collapsed} />}
   </Header>
 )

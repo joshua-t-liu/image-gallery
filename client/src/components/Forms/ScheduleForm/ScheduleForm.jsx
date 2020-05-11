@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from './Header.jsx';
-import Body from './Body.jsx';
-import Footer from './Footer.jsx';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
 
 const ScheduleForm = styled.div`
   display: flex;
@@ -23,6 +23,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   overflow: visible;
+  padding: 0 2px;
 `;
 
 const header = 'Schedule A Tour';

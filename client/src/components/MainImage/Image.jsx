@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledImage = styled.img`
+const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -10,11 +10,9 @@ const StyledImage = styled.img`
     transform: scale(1.04);
 `;
 
-const Image = ({ imageURL }) => (
+export default ({ imageURL }) => (
   <picture>
     <source></source>
-    <StyledImage src={imageURL} />
+    <Image src={imageURL} />
   </picture>
 );
-
-export default Image;

@@ -1,3 +1,3 @@
-import MainImage from './MainImage.jsx';
+import MainImage from './MainImage';
 
 export default MainImage;

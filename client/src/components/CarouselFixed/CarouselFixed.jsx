@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Body from './Body.jsx';
-import SlideButton from './SlideButton.jsx';
+import Body from './Body';
+import SlideButton from './SlideButton';
 
 const Carousel = styled.div`
   position: relative;
@@ -17,8 +17,8 @@ const Position = styled.div`
   z-index: 1;
 `;
 
-export default ({ children, btnLeft, btnRight, top = '7px', right = '0px'}) => {
-  const [selected, setSelected] = useState(0);
+export default ({ children, btnLeft, btnRight, top = '7px', right = '0px', initial = 0 }) => {
+  const [selected, setSelected] = useState(initial);
   const [clipped, setClipped] = useState(false);
   const [shift, setShift] = useState(0);
   const [max, setMax] = useState(0);
@@ -27,7 +27,11 @@ export default ({ children, btnLeft, btnRight, top = '7px', right = '0px'}) => {
   const resize = (event) => {
     const { childNodes, style, scrollWidth, clientWidth } = ref.current;
     const size = Array.from(childNodes).reduce((size, child) => size + child.offsetWidth, 0);
-    style.transform = 'translateX(0)';
+    // why is animation necessary, tested with setting css directly but did not work
+    const keyframe = [{ transform: `translateX(-${shift}%)` }, { transform: `translateX(0%)` }];
+    const duration = { duration: 0, fill: 'forwards' };
+    const animation = ref.current.animate(keyframe, duration);
+
     setClipped((scrollWidth - clientWidth) > 0);
     setMax(100 * (size / clientWidth - 1));
     setShift(0);
@@ -40,12 +44,19 @@ export default ({ children, btnLeft, btnRight, top = '7px', right = '0px'}) => {
   }, []);
 
   const onShift = (dir = 1) => {
-    const range = (val) => (Math.max(0, Math.min(val, max)));
     return function (event) {
-      setShift(range(shift + dir * 100));
-      ref.current.style.transform = `translateX(-${range(shift + dir * 100)}%)`;
+      event.preventDefault();
+      const next = Math.max(0, Math.min(shift + dir * 100, max));
+      const keyframe = [{ transform: `translateX(-${shift}%)` }, { transform: `translateX(-${next}%)` }];
+      const duration = { duration: 250 * Math.abs(next - shift) / 100, fill: 'forwards' };
+      const animation = ref.current.animate(keyframe, duration);
+      animation.onfinish = () => setShift(next);
     }
-  }
+  };
+
+  const onClick = (event) => {
+    setSelected(parseInt(event.currentTarget.id));
+  };
 
   return (
     <Carousel>
@@ -59,7 +70,7 @@ export default ({ children, btnLeft, btnRight, top = '7px', right = '0px'}) => {
         <SlideButton btn={btnLeft} left={true} onClick={onShift(-1)}/>
       </Position>}
 
-      <Body children={children} ref={ref} onClick={(event) => setSelected(parseInt(event.currentTarget.id))} selected={selected} />
+      <Body children={children} ref={ref} onClick={onClick} selected={selected} />
     </Carousel>
   )
 };

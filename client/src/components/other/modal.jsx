@@ -1,10 +1,20 @@
 import React, { createRef } from 'react';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { StyledModal } from '../styles.jsx';
-import { ModalContainer } from '../stylesNew.jsx';
+const Modal = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: opacity 0.5s;
+`;
 
-const Modal = ({ children }) => {
+export default ({ children }) => {
   const history = useHistory();
   const ref = createRef();
 
@@ -22,10 +32,8 @@ const Modal = ({ children }) => {
   }
 
   return (
-    <ModalContainer ref={ref} onClick={onClick} onTransitionEnd={onTransistionEnd} >
+    <Modal ref={ref} onClick={onClick} onTransitionEnd={onTransistionEnd} >
       {children}
-    </ModalContainer>
+    </Modal>
   )
-}
-
-export default Modal;
+};

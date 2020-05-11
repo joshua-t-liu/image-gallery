@@ -1,10 +1,8 @@
-import React, { useState, forwardRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-
-import Header from './Header.jsx';
-import Filters from './Filters.jsx';
-import List from './List.jsx';
-import { FlexboxCol } from '../../styles.jsx';
+import Header from './Header';
+import Filters from './Filters';
+import List from './List';
 
 const SchoolForm = styled.div`
   display: flex;
@@ -28,11 +26,13 @@ const levels = ['Elementary', 'Middle', 'High', 'All Grades'];
 const types = ['Assigned', 'Public', 'Private', 'All'];
 const disclosure = 'Check with the applicable school district prior to making a decision based on these schools.';
 
-export default ({ schools, collapsed, onClick }) => (
-  <SchoolForm>
-    <Header onClick={onClick} />
-    <Filters types={types} levels={levels} />
-    <Disclosure>{disclosure}</Disclosure>
-    {!collapsed && <List schools={schools} />}
-  </SchoolForm>
-);
+export default ({ schools, collapsed, onCollapse, setType, typeFilter, setLevel, levelFilter }) => {
+  return (
+    <SchoolForm>
+      <Header onClick={onCollapse} collapsed={collapsed} />
+      <Filters types={types} levels={levels} typeFilter={typeFilter} setType={setType} levelFilter={levelFilter} setLevel={setLevel} />
+      <Disclosure>{disclosure}</Disclosure>
+      {!collapsed && <List schools={schools} typeFilter={typeFilter} levelFilter={levelFilter} />}
+    </SchoolForm>
+  );
+}

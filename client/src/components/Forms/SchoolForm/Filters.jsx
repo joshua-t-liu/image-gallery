@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import CarouselFixed from '../../CarouselFixed';
-import { StyledNavButton } from '../../buttons.jsx';
+import { StyledNavButton } from '../../buttons';
 
 const Types = styled.div`
   width: 50%;
@@ -27,10 +27,12 @@ const Choices = styled.select`
   opacity: 0;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 `;
 
 const Value = styled.div`
   flex: 1 1 auto;
+  font-weight: bold;
 `;
 
 const Icon = styled.div`
@@ -38,19 +40,19 @@ const Icon = styled.div`
   height: 24px;
 `;
 
-const TypeFilter = ({ types }) => (
+const TypeFilter = ({ types, setType, typeFilter }) => (
   <Types>
     <DropDown>
       <Current>
-        <Value>Type</Value>
+        <Value>{typeFilter}</Value>
         <Icon>
           <svg className="svg" viewBox="0 0 32 32">
             <path d="M15.961 18.183l7.056-7.147 1.893 1.868-8.951 9.068-8.927-9.069 1.896-1.866z" fill="#869099"></path>
             </svg>
         </Icon>
       </Current>
-      <Choices>
-        {types && types.map((type, idx) => <option key={idx} value={type.toLowerCase()}>{type}</option>)}
+      <Choices value={typeFilter} onChange={(event) => setType(event.target.value)}>
+        {types && types.map((type, idx) => <option key={idx} value={type}>{type}</option>)}
       </Choices>
     </DropDown>
   </Types>
@@ -61,22 +63,27 @@ const Levels = styled.div`
   margin: 0 -2px 0 -2px;
 `;
 
+const LevelFilter = ({ levels, setLevel, levelFilter }) => {
+  const changeLevel = (event) => {
+    event.preventDefault();
+    setLevel(event.target.innerText);
+  }
+  return (
+    <Levels>
+      <CarouselFixed initial={3}>
+        {levels && levels.map((level, idx) => (
+          <StyledNavButton key={idx} onClick={changeLevel} style={{ fontSize: '14px' }}>
+            <span>{level}</span>
+          </StyledNavButton>
+        ))}
+      </CarouselFixed>
+    </Levels>
+  );
+}
 
-const LevelFilter = ({ levels }) => (
-  <Levels>
-    <CarouselFixed>
-      {levels && levels.map((level, idx) => (
-        <StyledNavButton key={idx} onClick={() => {}} style={{ fontSize: '14px' }}><span>{level}</span></StyledNavButton>
-      ))}
-    </CarouselFixed>
-  </Levels>
+export default ({ types, levels, setType, typeFilter, setLevel, levelFilter }) => (
+  <>
+    <TypeFilter types={types} setType={setType} typeFilter={typeFilter} />
+    <LevelFilter levels={levels} levelFilter={levelFilter} setLevel={setLevel} />
+  </>
 );
-
-const SchoolFilter = ({ types, levels }) => (
-  <Fragment>
-    <TypeFilter types={types} />
-    <LevelFilter levels={levels} />
-  </Fragment>
-)
-
-export default SchoolFilter;

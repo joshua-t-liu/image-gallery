@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Footer from './Footer.jsx';
-import Slide from './Slide.jsx';
-import SlideButtons from './SlideButton.jsx';
+import Footer from './Footer';
+import Slide from './Slide';
+import SlideButtons from './SlideButton';
 
 const Carousel = styled.div`
   display: flex;
@@ -12,6 +12,7 @@ const Carousel = styled.div`
 
 const Slides = styled.div`
   position: relative;
+  overflow: hidden;
   display: flex;
   flex: 1 1 0%;
   height: 100%;

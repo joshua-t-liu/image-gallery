@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import StreetViewEmbed from './StreetViewEmbed.jsx';
-import ResponsiveScheduleForm from './ResponsiveScheduleForm.jsx';
+import StreetViewEmbed from './StreetViewEmbed';
+import ResponsiveScheduleForm from './ResponsiveScheduleForm';
 
 const MediaStreetView = styled.div`
   position: relative;

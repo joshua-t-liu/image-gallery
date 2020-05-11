@@ -1,3 +1,3 @@
-import CarouselFixed from './CarouselFixed.jsx';
+import CarouselFixed from './CarouselFixed';
 
 export default CarouselFixed;

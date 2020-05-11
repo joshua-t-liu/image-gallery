@@ -1,14 +1,16 @@
 import React from 'react';
 import { Route, useLocation, useRouteMatch } from "react-router-dom";
 import styled from 'styled-components';
-
 import MainImage from '../MainImage';
-import Popup from '../Popup';
-import { Flexbox } from '../styles.jsx';
+import MediaPopup from '../MediaPopup';
 
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const ProductPage = styled.div`
+  font-family: arial;
 `;
 
 export default ({ home }) => {
@@ -17,11 +19,11 @@ export default ({ home }) => {
   const background = location.state && location.state.background;
 
   return (
-    <div>
+    <ProductPage>
       <ImageContainer>
         <MainImage home={home}/>
       </ImageContainer>
-      {background && <Route path={`${url}/:id`} children={<Popup home={home} />} />}
-    </div>
+      {background && <Route path={`${url}/:id`} children={<MediaPopup home={home} />} />}
+    </ProductPage>
   )
 };

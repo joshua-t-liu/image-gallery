@@ -22,7 +22,7 @@ const Image = styled.img`
 `;
 
 export default ({shift, src, zIndex}) => (
-  <SlideContainer>
+  <SlideContainer shift={shift} zIndex={zIndex}>
     <SlideFrame>
       {/* source have srcset and media */}
       <source></source>

@@ -1,15 +1,12 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { Link, useLocation, useRouteMatch } from 'react-router-dom';
+import Tags from './Tags';
+import Image from './Image';
+import GalleryButton from './GalleryButton';
+import { SaveButton, ShareButton } from '../buttons';
 
-import Tag from './Tag.jsx';
-import Image from './Image.jsx';
-import GalleryButton from './GalleryButton.jsx';
-
-import { SaveButton, ShareButton } from '../buttons.jsx';
-import { Absolute, Flexbox, FlexItem } from '../styles.jsx';
-
-const StyledMainImage = styled.div`
+const Frame = styled.div`
   position: relative;
   height: 500px;
   max-height: calc(100vh - 275px);
@@ -18,34 +15,55 @@ const StyledMainImage = styled.div`
   border-radius: 8px;
 `;
 
-const MainImage = ({ home }) => {
+const TopDecorations = styled.div`
+  position: absolute;
+  display: flex;
+  width: 100%;
+  padding: 8px 8px 0;
+  z-index: 1;
+  box-sizing: border-box;
+`;
+
+const BottomDecorations = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  z-index: 1;
+  padding-right: 8px;
+`;
+
+const Body = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+`;
+
+export default ({ home }) => {
   const { imageURLs, tagsProcessed } = home;
   const location = useLocation();
   const { url } = useRouteMatch();
 
   return (
-      <StyledMainImage>
-        <Link to={{ pathname: `${url}/photos`, state: { background: location } }}>
-          <Absolute className='tall wide' style={{ borderRadius: '8px' }}>
-            <Image imageURL={imageURLs[0]} />
-          </Absolute>
-          <Absolute right='0px' bottom='8px' style={{ zIndex: 1, paddingRight: '8px' }}>
-            <GalleryButton count={imageURLs.length} />
-          </Absolute>
-        </Link>
-        <Absolute className='wide' style={{ padding: '8px 8px 0px', zIndex: 1, boxSizing: 'border-box' }}>
-          <Flexbox>
-            <FlexItem children={tagsProcessed.map((tag, idx) => (<Tag key={idx} tag={tag}/>))} />
-            <div>
-              <ThemeProvider theme={{ color: 'rgb(0, 120, 130)', borderStyle: 'none' }}>
-                <SaveButton />
-                <ShareButton marginLeft='16px' />
-              </ThemeProvider>
-            </div>
-          </Flexbox>
-        </Absolute>
-      </StyledMainImage>
+    <Frame>
+      <TopDecorations>
+        <Tags tagsProcessed={tagsProcessed} />
+        <div>
+          <ThemeProvider theme={{ color: 'rgb(0, 120, 130)', borderStyle: 'none' }}>
+            <SaveButton />
+            <ShareButton margin='0 0 0 16px' />
+          </ThemeProvider>
+        </div>
+      </TopDecorations>
+      <Link to={{ pathname: `${url}/photos`, state: { background: location } }}>
+        <Body>
+          <Image imageURL={imageURLs[0]} />
+        </Body>
+        <BottomDecorations>
+          <GalleryButton count={imageURLs.length} />
+        </BottomDecorations>
+      </Link>
+    </Frame>
   )
 };
-
-export default MainImage;

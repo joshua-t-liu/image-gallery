@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import setupMapAPI from './helper/map.js';
+import setupMapAPI from './helper/map';
 
 const imageGallery = document.createElement('div');
 imageGallery.id = 'root-trulia-image-gallery';
-document.body.append(imageGallery);
+document.body.prepend(imageGallery);
 
 setupMapAPI();
 

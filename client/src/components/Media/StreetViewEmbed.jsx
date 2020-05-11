@@ -21,5 +21,5 @@ export default ({ position }) => {
     }
   }, []);
 
-  return <StreetViewEmbed className='tall' ref={ref} />;
+  return <StreetViewEmbed ref={ref} />;
 };
