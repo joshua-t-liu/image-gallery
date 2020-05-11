@@ -80,7 +80,7 @@ export default () => {
         <Input type='text' placeholder='Email' onBlur={onBlur(setEmailCheck)} />
         {noEmail && <ErrorMessage message={'Enter a valid email.'} />}
       </FormRow>
-      <CheckBox financeChecked={financeChecked} setFinance={setFinance} />
+      <CheckBox status={financeChecked} toggle={setFinance} />
       <FormRow padding='4px 0 0 0' margin='0 0 8px 0'>
         <ScheduleButton width='100%' padding='8px 16px' />
       </FormRow>

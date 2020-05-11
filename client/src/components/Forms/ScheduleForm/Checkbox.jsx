@@ -23,17 +23,17 @@ const FieldMessage = styled.div`
   font-size: 12px;
 `;
 
-export default ({ financeChecked, setFinance }) => (
+export default ({ status, toggle }) => (
   <CheckBoxField>
     <div>
-      <CheckBox type="checkbox" onClick={() => setFinance(!financeChecked)}/>
-      <svg width="20" height="20" viewBox="0 0 24 24" style={{ width: '20px', height: '20px' }}>
+      <CheckBox type='checkbox' onClick={() => toggle(!status)}/>
+      <svg width='20px' height='20px' viewBox='0 0 24 24'>
         <g>
-        {financeChecked ?
+        {status ?
           <>
-            <rect data-cb-part="blur" strokeWidth="2" width="18" height="18" x="3" y="3" rx="4"></rect>
-            <rect data-cb-part="background" stroke-width="2" width="18" height="18" x="3" y="3" rx="4" fill='rgb(0, 120, 130)'></rect>
-            <path data-cb-part="check" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13l2.5 2L15 9">
+            <rect strokeWidth="2" width="18" height="18" x="3" y="3" rx="4"></rect>
+            <rect stroke-width="2" width="18" height="18" x="3" y="3" rx="4" fill='rgb(0, 120, 130)'></rect>
+            <path fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13l2.5 2L15 9">
             </path>
           </>
           :
@@ -43,7 +43,7 @@ export default ({ financeChecked, setFinance }) => (
       </svg>
     </div>
     <FieldMessage>
-      <span>{financeChecked ? 'A licensed lender will call you soon' : 'I want to talk about financing'}</span>
+      <span>{status ? 'A licensed lender will call you soon' : 'I want to talk about financing'}</span>
     </FieldMessage>
   </CheckBoxField>
 );
