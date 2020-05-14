@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Route, useLocation } from "react-router-dom";
+import axios from 'axios';
 import styled from 'styled-components';
 import MainImage from '../MainImage';
 import MediaPopup from '../MediaPopup';
 import setupMapAPI from '../../helper/map';
-// import fetch from 'isomorphic-fetch';
-import axios from 'axios';
 
 const ImageContainer = styled.div`
   display: flex;
@@ -14,10 +13,8 @@ const ImageContainer = styled.div`
 
 const initial = { imageURLs: [], tagsProcessed: [] };
 
-const server = 'http://localhost:3001/homes';
-
 const fetchData = function (id) {
-  return axios.get(`${server}/${id}/images`)
+  return axios.get(`/homes/${id}/images`)
 };
 
 const App = ({ homeInit = initial, pathname = '/' }) => {

@@ -74,8 +74,10 @@ export default ({ home }) => {
   ];
 
   useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
+    const resize = () => setWidth(window.innerWidth)
+    window.addEventListener('resize', resize);
+    return () => window.removeEventListener('resize', resize);
+  }, []);
 
   return (
     <Modal>

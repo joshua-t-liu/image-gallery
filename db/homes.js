@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const { connections } = require('../config/connections.js');
 const { formatOpenTime } = require('./helper.js');
 const { MONTHS, TAGS } = require('./constants.js');
 const root = 'https://loremflickr.com/320/240';
 
-mongoose.connect(connections.mongo.url, {
+mongoose.connect('mongodb://imagesdb/trulia', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
