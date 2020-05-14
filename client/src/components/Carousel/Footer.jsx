@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Pipe } from '../Other/Auxilliary';
 
 const Footer = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ const Summary = styled.div`
 export default ({ home, index, innerWidth }) => {
 
   const { address, price, rooms, imageURLs } = home;
-  const pipe = <span style={{ margin: '0px 8px' }}>|</span>
+  // const pipe = <span style={{ margin: '0px 8px' }}>|</span>
   const offset = (innerWidth < 898) ? '308px' : '';
 
   return (
@@ -34,8 +35,8 @@ export default ({ home, index, innerWidth }) => {
       </Count>
       <Summary offset={offset}>
         <span>{address}</span>
-        <span>{pipe}{price}</span>
-        <span>{pipe}{rooms}</span>
+        <span><Pipe />{price}</span>
+        <span><Pipe />{rooms}</span>
       </Summary>
     </Footer>
   )

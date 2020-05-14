@@ -10,4 +10,8 @@ const Divider = () => (
   </div>
 );
 
-export { Dot, Divider };
+const Pipe = () => (
+  <span style={{ margin: '0px 8px' }}>|</span>
+);
+
+export { Dot, Divider, Pipe };

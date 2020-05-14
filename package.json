@@ -4,7 +4,7 @@
   "description": "image gallery",
   "scripts": {
     "start": "nodemon .",
-    "seed": "node ./db/seed.js",
+    "seed": "node ./db/seed.js &",
     "compile": "webpack -d --watch",
     "test": "jest",
     "lint": "eslint ./client"
@@ -12,10 +12,13 @@
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
     "@google/markerclustererplus": "^5.0.3",
+    "axios": "^0.19.2",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "isomorphic-fetch": "^2.2.1",
     "mongoose": "^5.9.10",
     "nodemon": "^2.0.3",
     "react": "^16.13.1",
