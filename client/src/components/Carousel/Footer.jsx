@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Pipe } from '../Other/Auxilliary';
 
 const Footer = styled.div`
   display: flex;
@@ -21,6 +20,10 @@ const Summary = styled.div`
   padding: 8px 0px;
   margin-right: ${({ offset }) => offset};
 `;
+
+const Pipe = () => (
+  <span style={{ margin: '0px 8px' }}>|</span>
+);
 
 export default ({ home, index, innerWidth }) => {
 

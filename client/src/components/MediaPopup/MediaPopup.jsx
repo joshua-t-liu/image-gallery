@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Modal from '../Other/Modal';
+import Modal from '../Modal';
 import Head from './Head';
 import Photos from '../Media/Photos';
 import Map from '../Media/Map';
