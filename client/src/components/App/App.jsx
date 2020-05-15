@@ -13,11 +13,11 @@ const ImageContainer = styled.div`
 
 const initial = { imageURLs: [], tagsProcessed: [] };
 
-const fetchData = function (id) {
-  return axios.get(`/homes/${id}/images`)
+const fetchData = function (id, pathname) {
+  return axios.get(`${pathname || ''}/homes/${id}/images`)
 };
 
-const App = ({ homeInit = initial, pathname = '/' }) => {
+const App = ({ id, homeInit = initial, pathname = '/' }) => {
   const [home, setHome] = useState(homeInit);
   const resolvedPath = (pathname === '/') ? '' : pathname;
   const location = useLocation();
@@ -26,8 +26,7 @@ const App = ({ homeInit = initial, pathname = '/' }) => {
   useEffect(() => {
     setupMapAPI();
     if (homeInit === initial) {
-      console.log('load test data');
-      fetchData(1)
+      fetchData(id || 1)
       .then(response => response.data)
       .then(home => {
         if (home) {

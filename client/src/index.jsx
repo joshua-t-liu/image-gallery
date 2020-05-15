@@ -6,8 +6,11 @@ import App from './components/App';
 const imageGallery = document.createElement('div');
 document.body.prepend(imageGallery);
 
+const pathname = window.location.pathname.split('/');
+const id = parseInt(pathname[pathname.length - 1]);
+
 ReactDOM.render((
   <Router>
-    <App pathname={window.location.pathname} />
+    <App id={id} pathname={window.location.pathname} />
   </Router>
   ), imageGallery);

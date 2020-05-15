@@ -1,7 +1,7 @@
 version: '3.8'
   services:
     app:
-      build: 'image-gallery/.'
+      build: './image-gallery'
       depends_on:
         - 'imagedb'
       ports:

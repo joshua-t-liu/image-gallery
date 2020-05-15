@@ -3,7 +3,7 @@ const { formatOpenTime } = require('./helper.js');
 const { MONTHS, TAGS } = require('./constants.js');
 const root = 'https://loremflickr.com/320/240';
 
-mongoose.connect('mongodb://imagesdb/trulia', {
+mongoose.connect('mongodb://localhost/trulia', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
