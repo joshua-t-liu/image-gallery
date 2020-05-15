@@ -29,7 +29,11 @@ const App = ({ homeInit = initial, pathname = '/' }) => {
       console.log('load test data');
       fetchData(1)
       .then(response => response.data)
-      .then(home => setHome(home))
+      .then(home => {
+        if (home) {
+          setHome(home);
+        }
+      })
       .catch(err => console.error(err));
     }
   }, []);
