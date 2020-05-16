@@ -51,5 +51,5 @@ app.get('/homes/:id/images', (req, res) => {
 
 app.listen(PORT, (err) => {
   if (err) throw err;
-  console.log('listening on port', PORT);
+  console.log('listening on port', PORT, process.env.NODE_ENV);
 });

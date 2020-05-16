@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon .",
     "seed": "node ./db/seed.js &",
-    "compile": "webpack -d --watch",
+    "compile": "webpack -p --mode=production -d --watch",
     "test": "jest",
     "lint": "eslint ./client"
   },
@@ -13,7 +13,6 @@
     "@babel/polyfill": "^7.8.7",
     "@google/markerclustererplus": "^5.0.3",
     "axios": "^0.19.2",
-    "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
@@ -31,6 +30,7 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
+    "babel-core": "^6.26.3",
     "babel-jest": "^26.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -44,6 +44,7 @@
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
     "node-fetch": "^2.6.0",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "terser-webpack-plugin": "^3.0.1"
   }
 }
