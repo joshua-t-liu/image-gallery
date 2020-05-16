@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Route, useLocation } from "react-router-dom";
 import axios from 'axios';
 import styled from 'styled-components';
 import MainImage from '../MainImage';
-import MediaPopup from '../MediaPopup';
 import setupMapAPI from '../../helper/map';
+const MediaPopup = lazy(() => import('../MediaPopup'));
 
 const ImageContainer = styled.div`
   display: flex;
@@ -42,7 +42,9 @@ const App = ({ id, homeInit = initial, pathname = '/' }) => {
     <ImageContainer>
       <MainImage home={home} pathname={resolvedPath} />
     </ImageContainer>
-    {background && <Route path={`${resolvedPath}/:id`} children={<MediaPopup home={home} />} />}
+    <Suspense fallback={<div></div>}>
+      {background && <Route path={`${resolvedPath}/:id`} children={<MediaPopup home={home} />} />}
+    </Suspense>
     </>
   )
 };

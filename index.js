@@ -1,10 +1,24 @@
 const express = require('express');
+const compression = require('compression');
 const db = require('./db');
 
 const app = express();
 const PORT = 3001;
 
+app.use(compression());
 app.use(express.static('public'));
+
+app.get('/homes/:id/0.bundle.js', (req, res) => {
+  res.sendFile('0.bundle.js', { root: `${__dirname}/public` }, (err) => {
+    if (err) res.sendStatus(404);
+  });
+});
+
+app.get('/homes/:id/1.bundle.js', (req, res) => {
+  res.sendFile('1.bundle.js', { root: `${__dirname}/public` }, (err) => {
+    if (err) res.sendStatus(404);
+  });
+});
 
 app.get('/homes/:id', (req, res) => {
   res.sendFile('index.html', { root: `${__dirname}/public` }, (err) => {
