@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 import MapEmbed from './MapEmbed';
 import SchoolForm from '../Forms/SchoolForm';
-import schools from '../Forms/SchoolForm/dummyData';
+import schools from '../../../../db/school_test.js';
 
 const MediaSchool = styled.div`
   position: relative;

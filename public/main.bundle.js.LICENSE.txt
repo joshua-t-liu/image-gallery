@@ -1,0 +1,27 @@
+/*! ModuleConcatenation bailout: Cannot concat with ./client/src/components/buttons.jsx because of ./client/src/components/MediaPopup/Head.jsx */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-dom/index.js (<- Module is not an ECMAScript module) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router-dom/esm/react-router-dom.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router/esm/react-router.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/styled-components/dist/styled-components.browser.esm.js (<- Module uses injected variables (process)) */
+
+/*! all exports used */
+
+/*! exports provided: BasicButton, RoundButton, Path, StyledNavButton, SaveButton, ShareButton, ScheduleButton */
+
+/*! exports used: BasicButton, Path, RoundButton, SaveButton, ScheduleButton, ShareButton, StyledNavButton */
+
+/*! no exports provided */
+
+/*!******************************************!*\
+  !*** ./client/src/index.jsx + 9 modules ***!
+  \******************************************/
+
+/*!*******************************************!*\
+  !*** ./client/src/components/buttons.jsx ***!
+  \*******************************************/

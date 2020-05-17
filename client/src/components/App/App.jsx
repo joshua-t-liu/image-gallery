@@ -1,6 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Route, useLocation } from "react-router-dom";
-import axios from 'axios';
 import styled from 'styled-components';
 import MainImage from '../MainImage';
 import setupMapAPI from '../../helper/map';
@@ -13,11 +12,7 @@ const ImageContainer = styled.div`
 
 const initial = { imageURLs: [], tagsProcessed: [] };
 
-const fetchData = function (id, pathname) {
-  return axios.get(`${pathname || ''}/homes/${id}/images`)
-};
-
-const App = ({ id, homeInit = initial, pathname = '/' }) => {
+export default ({ id, homeInit = initial, pathname = '/' }) => {
   const [home, setHome] = useState(homeInit);
   const resolvedPath = (pathname === '/') ? '' : pathname;
   const location = useLocation();
@@ -26,8 +21,8 @@ const App = ({ id, homeInit = initial, pathname = '/' }) => {
   useEffect(() => {
     setupMapAPI();
     if (homeInit === initial) {
-      fetchData(id || 1)
-      .then(response => response.data)
+      fetch(`/homes/${id || 1}/images`)
+      .then(response => response.json())
       .then(home => {
         if (home) {
           setHome(home);
@@ -48,7 +43,3 @@ const App = ({ id, homeInit = initial, pathname = '/' }) => {
     </>
   )
 };
-
-App.fetchData = fetchData;
-
-export default App;

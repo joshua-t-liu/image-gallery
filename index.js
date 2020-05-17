@@ -20,26 +20,8 @@ app.get('/homes/:id/1.bundle.js', (req, res) => {
   });
 });
 
-app.get('/homes/:id/2.bundle.js', (req, res) => {
-  res.sendFile('2.bundle.js', { root: `${__dirname}/public` }, (err) => {
-    if (err) res.sendStatus(404);
-  });
-});
-
-app.get('/0.bundle.js', (req, res) => {
-  res.sendFile('0.bundle.js', { root: `${__dirname}/public` }, (err) => {
-    if (err) res.sendStatus(404);
-  });
-});
-
 app.get('/1.bundle.js', (req, res) => {
   res.sendFile('1.bundle.js', { root: `${__dirname}/public` }, (err) => {
-    if (err) res.sendStatus(404);
-  });
-});
-
-app.get('/2.bundle.js', (req, res) => {
-  res.sendFile('2.bundle.js', { root: `${__dirname}/public` }, (err) => {
     if (err) res.sendStatus(404);
   });
 });
@@ -63,5 +45,5 @@ app.get('/homes/:id/images', (req, res) => {
 
 app.listen(PORT, (err) => {
   if (err) throw err;
-  console.log('listening on port', PORT, process.env.NODE_ENV);
+  console.log('listening on port', PORT);
 });

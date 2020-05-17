@@ -1,15 +1,13 @@
 const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: './client/src/',
   output: {
     path: `${__dirname}/public`,
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   mode: 'production',
-  optimization: {
-    minimizer: [new TerserPlugin({})],
-  },
   module: {
     rules: [
       {
@@ -22,7 +20,30 @@ module.exports = {
       }
     ]
   },
+  // externals: {
+  //   react: 'React',
+  //   'react-dom': 'ReactDOM',
+  //   'styled-components': 'styled'
+  // },
   resolve: {
     extensions: ['.js', '.jsx']
-  }
+  },
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ],
+  // optimization: {
+  //   minimizer: [new TerserPlugin({})],
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       commons: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendors',
+  //         chunks: 'all'
+  //       }
+  //     }
+  //   }
+  // },
+  // optimization: {
+  //   minimizer: [new TerserPlugin({})],
+  // },
 }
