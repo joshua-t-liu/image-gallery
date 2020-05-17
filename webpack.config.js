@@ -20,30 +20,27 @@ module.exports = {
       }
     ]
   },
-  // externals: {
-  //   react: 'React',
-  //   'react-dom': 'ReactDOM',
-  //   'styled-components': 'styled'
-  // },
   resolve: {
     extensions: ['.js', '.jsx']
   },
   plugins: [
     new BundleAnalyzerPlugin()
   ],
-  // optimization: {
-  //   minimizer: [new TerserPlugin({})],
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       commons: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: 'vendors',
-  //         chunks: 'all'
-  //       }
-  //     }
-  //   }
-  // },
-  // optimization: {
-  //   minimizer: [new TerserPlugin({})],
-  // },
+  optimization: {
+    minimizer: [new TerserPlugin({})],
+    // splitChunks: {
+    //   cacheGroups: {
+    //     commons: {
+    //       test: /[\\/]node_modules[\\/]/,
+    //       name: 'vendors',
+    //       chunks: 'all'
+    //     }
+    //   }
+    // }
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'styled-components': 'styled',
+  },
 }
