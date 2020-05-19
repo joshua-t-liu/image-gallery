@@ -2,7 +2,7 @@ import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Route, useLocation } from "react-router-dom";
 import styled from 'styled-components';
 import MainImage from '../MainImage';
-import setupMapAPI from '../../helper/map';
+import setupMapAPI from '../../map';
 const MediaPopup = lazy(() => import('../MediaPopup'));
 
 const ImageContainer = styled.div`

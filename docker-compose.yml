@@ -3,8 +3,8 @@ services:
   app:
     build: .
     depends_on:
-      - imagesdb
+      - db
     ports:
       - "80:3001"
-  imagesdb:
-    image: mongodb:latest
+  db:
+    image: mongo:latest

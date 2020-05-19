@@ -5,7 +5,8 @@ module.exports = {
   entry: './client/src/',
   output: {
     path: `${__dirname}/public`,
-    filename: '[name].bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   mode: 'production',
   module: {
@@ -28,15 +29,6 @@ module.exports = {
   ],
   optimization: {
     minimizer: [new TerserPlugin({})],
-    // splitChunks: {
-    //   cacheGroups: {
-    //     commons: {
-    //       test: /[\\/]node_modules[\\/]/,
-    //       name: 'vendors',
-    //       chunks: 'all'
-    //     }
-    //   }
-    // }
   },
   externals: {
     react: 'React',

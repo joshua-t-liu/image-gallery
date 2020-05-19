@@ -2,25 +2,9 @@
 
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./client/src/index.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js because of ./client/src/index.jsx */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js because of ./client/src/index.jsx */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/inheritsLoose.js (<- Module is not an ECMAScript module) */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/gud/index.js (<- Module is not an ECMAScript module) */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/history/esm/history.js because of ./client/src/index.jsx */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js (<- Module is not an ECMAScript module) */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/prop-types/index.js (<- Module is not an ECMAScript module) */
-
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router-dom/esm/react-router-dom.js because of ./client/src/components/MediaPopup/MediaPopup.jsx */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router/esm/react-router.js because of ./client/src/components/MediaPopup/MediaPopup.jsx */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router/node_modules/path-to-regexp/index.js (<- Module is not an ECMAScript module) */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./client/src/index.jsx */
 
@@ -32,13 +16,15 @@
 
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */
 
+/*! ModuleConcatenation bailout: Module uses injected variables (global) */
+
 /*! all exports used */
 
 /*! exports provided: BasicButton, RoundButton, Path, StyledNavButton, SaveButton, ShareButton, ScheduleButton */
 
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __HistoryContext, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
 
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 
 /*! exports provided: createBrowserHistory, createHashHistory, createMemoryHistory, createLocation, locationsAreEqual, parsePath, createPath */
 
@@ -78,10 +64,6 @@
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
 
-/*!***********************************!*\
-  !*** ./node_modules/gud/index.js ***!
-  \***********************************/
-
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
   \****************************************/
@@ -98,6 +80,10 @@
   !*** ./client/src/components/buttons.jsx ***!
   \*******************************************/
 
+/*!*******************************************************!*\
+  !*** ./node_modules/react-router/esm/react-router.js ***!
+  \*******************************************************/
+
 /*!*********************************************************!*\
   !*** ./node_modules/history/esm/history.js + 2 modules ***!
   \*********************************************************/
@@ -113,10 +99,6 @@
 /*!*************************************************************!*\
   !*** ./node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
   \*************************************************************/
-
-/*!**************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/inheritsLoose.js ***!
-  \**************************************************************/
 
 /*!**************************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.production.min.js ***!
@@ -138,9 +120,9 @@
   !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
   \******************************************************************/
 
-/*!*******************************************************************!*\
-  !*** ./node_modules/react-router/esm/react-router.js + 1 modules ***!
-  \*******************************************************************/
+/*!******************************************************************!*\
+  !*** ./node_modules/mini-create-react-context/dist/esm/index.js ***!
+  \******************************************************************/
 
 /*!************************************************************************!*\
   !*** ./node_modules/react-router/node_modules/path-to-regexp/index.js ***!

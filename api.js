@@ -8,30 +8,6 @@ const PORT = 3001;
 app.use(compression());
 app.use(express.static('public'));
 
-app.get('/homes/:id/1.bundle.js', (req, res) => {
-  res.sendFile('1.bundle.js', { root: `${__dirname}/public` }, (err) => {
-    if (err) res.sendStatus(404);
-  });
-});
-
-app.get('/homes/:id/2.bundle.js', (req, res) => {
-  res.sendFile('2.bundle.js', { root: `${__dirname}/public` }, (err) => {
-    if (err) res.sendStatus(404);
-  });
-});
-
-app.get('/1.bundle.js', (req, res) => {
-  res.sendFile('1.bundle.js', { root: `${__dirname}/public` }, (err) => {
-    if (err) res.sendStatus(404);
-  });
-});
-
-app.get('/2.bundle.js', (req, res) => {
-  res.sendFile('2.bundle.js', { root: `${__dirname}/public` }, (err) => {
-    if (err) res.sendStatus(404);
-  });
-});
-
 app.get('/homes/:id', (req, res) => {
   res.sendFile('index.html', { root: `${__dirname}/public` }, (err) => {
     if (err) res.sendStatus(404);
@@ -47,6 +23,11 @@ app.get('/homes/:id/images', (req, res) => {
       res.json(home);
     }
   });
+});
+
+app.get('/homes/:id/*', (req, res) => {
+  const { id } = req.params;
+  res.redirect(`/homes/${id}`);
 });
 
 app.listen(PORT, (err) => {
