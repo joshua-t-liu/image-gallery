@@ -1,18 +1,17 @@
 # image-gallery
 
 ### Goal
-This project reproduces Trulia's image gallery feature on their product page from scratch.  The project uses Express for the backend and React for the frontend.
-
-### Background
-[Trulia](https://www.trulia.com/) is a real estate website that advertises homes for sale.  Their product page has an image carousel that lets user scroll through images of the home for sale.
+This project creates an image gallery microservice for a real estate web application.  The project uses Express and MongoDB for the backend and React for the frontend.
 
 ### Technologies
-  - express
-  - mongoDB
-  - mongoose
-  - faker
+  - Express
+  - MongoDB
+  - React
+  - Styled Components
 
 ### Reproduction Steps
+Assumes MongoDB is installed and running in the local environment.
+
 1. Install repo dependencies.
     $ npm install
 
@@ -23,4 +22,8 @@ This project reproduces Trulia's image gallery feature on their product page fro
     $ npm run start
 
 4. Pull test data.
-    - Pick any browser and load the site <http://localhost:3000/homes/10> to see an example response for a request from the server.
+    - Pick any browser and load the site <http://localhost:3001/homes/10> to see an example response for a request from the server.
+
+![Image Gallery](https://github.com/joshua-t-liu/image-gallery/blob/master/image/photos.png)
+
+![Image Gallery](https://github.com/joshua-t-liu/image-gallery/blob/master/image/schools.png)

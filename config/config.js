@@ -1,2 +1,2 @@
-const code = '';
-export { code };
+const GoogleAPIKey = '';
+export { GoogleAPIKey };

@@ -1,9 +1,9 @@
-import { code } from '../../config/config';
+import { GoogleAPIKey } from '../../config/config.js';
 
 const setupMapAPI = (cb = () => {}) => {
   // Create the script tag, set the appropriate attributes
   const script = document.createElement('script');
-  script.src = `https://maps.googleapis.com/maps/api/js?key=${code}&callback=initMap`;
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${GoogleAPIKey}&callback=initMap`;
   script.defer = true;
   script.async = true;
 
