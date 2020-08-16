@@ -6,6 +6,9 @@ import Image from './Image';
 import GalleryButton from './GalleryButton';
 import { SaveButton, ShareButton } from '../buttons';
 
+const SMALL_WIDTH = '768px';
+const MEDIUM_WIDTH = '1248px';
+
 const Frame = styled.div`
   position: relative;
   height: 500px;
@@ -13,6 +16,10 @@ const Frame = styled.div`
   min-height: 275px;
   width: 992px;
   border-radius: 8px;
+  @media (max-width: ${SMALL_WIDTH}) {
+    width: 100%;
+    height: 275px;
+  }
 `;
 
 const TopDecorations = styled.div`
@@ -50,8 +57,8 @@ export default ({ home, pathname }) => {
         <Tags tagsProcessed={tagsProcessed} />
         <div>
           <ThemeProvider theme={{ color: 'rgb(0, 120, 130)', borderStyle: 'none' }}>
-            <SaveButton />
-            <ShareButton margin='0 0 0 16px' />
+            <SaveButton fill='white'/>
+            <ShareButton margin='0 0 0 16px' fill='white' />
           </ThemeProvider>
         </div>
       </TopDecorations>
