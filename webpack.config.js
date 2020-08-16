@@ -2,13 +2,13 @@ const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: './client/src/',
+  entry: './client/',
   output: {
     path: `${__dirname}/public`,
     filename: 'bundle.js',
     publicPath: '/',
   },
-  mode: 'production',
+  mode: 'development',
   module: {
     rules: [
       {
@@ -35,4 +35,4 @@ module.exports = {
     'react-dom': 'ReactDOM',
     'styled-components': 'styled',
   },
-}
+};

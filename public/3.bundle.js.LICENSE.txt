@@ -1,8 +1,8 @@
-/*! ModuleConcatenation bailout: Cannot concat with ./client/src/components/CarouselFixed/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./client/components/CarouselFixed/index.js */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./client/src/components/Media/ResponsiveScheduleForm.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./client/components/Media/ResponsiveScheduleForm.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./client/src/components/buttons.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./client/components/buttons.jsx */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./db/constants.js (<- Module is not an ECMAScript module) */
 
@@ -29,9 +29,9 @@
   \*************************/
 
 /*!************************************************************!*\
-  !*** ./client/src/components/Media/Photos.jsx + 5 modules ***!
+  !*** ./client/components/Media/StreetView.jsx + 1 modules ***!
   \************************************************************/
 
-/*!*****************************************************************************!*\
-  !*** ./client/src/components/Media/ResponsiveScheduleForm.jsx + 11 modules ***!
-  \*****************************************************************************/
+/*!*************************************************************************!*\
+  !*** ./client/components/Media/ResponsiveScheduleForm.jsx + 11 modules ***!
+  \*************************************************************************/

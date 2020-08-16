@@ -30,6 +30,8 @@ app.get('/homes/:id/*', (req, res) => {
   res.redirect(`/homes/${id}`);
 });
 
+app.get(/.*/, (req, res) => res.redirect('/'));
+
 app.listen(PORT, (err) => {
   if (err) throw err;
   console.log('listening on port', PORT);

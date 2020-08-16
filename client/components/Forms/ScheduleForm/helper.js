@@ -1,4 +1,4 @@
-import { MONTHS, DAYS } from '../../../../../db/constants';
+import { MONTHS, DAYS } from '../../../../db/constants';
 
 const getDateInfo = (date) => ({
   day: DAYS[date.getDay()],

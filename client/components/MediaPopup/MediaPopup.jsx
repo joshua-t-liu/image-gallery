@@ -4,11 +4,6 @@ import styled from 'styled-components';
 
 import Modal from '../Modal';
 import Head from './Head';
-// import Photos from '../Media/Photos';
-// import Map from '../Media/Map';
-// import StreetView from '../Media/StreetView';
-// import Schools from '../Media/Schools';
-// import Commute from '../Media/Commute';
 
 const Photos = lazy(() => import('../Media/Photos'));
 const Map = lazy(() => import('../Media/Map'));
@@ -41,50 +36,49 @@ const Body = styled.div`
 
 export default ({ home }) => {
   const { path } = useRouteMatch();
-  const [innerWidth, setWidth] = useState(1000);
+  const [innerWidth, setWidth] = useState(null);
+
   const routes = [
     {
       title: 'Photos',
       path: path.replace(':id', 'photos'),
       main: <Suspense fallback={<div />} children={<Photos home={home} innerWidth={innerWidth} />} />,
     },
-    {
-      title: 'Map',
-      path: path.replace(':id', 'mapView'),
-      main: <Map innerWidth={innerWidth} position={position} />,
-      main: <Suspense fallback={<div />} children={<Map innerWidth={innerWidth} position={position} />} />,
-    },
+    // {
+    //   title: 'Map',
+    //   path: path.replace(':id', 'mapView'),
+    //   main: <Suspense fallback={<div />} children={<Map innerWidth={innerWidth} position={position} />} />,
+    // },
     {
       title: 'Street View',
       path: path.replace(':id', 'streetView'),
-      main: <StreetView innerWidth={innerWidth} position={position} />,
       main: <Suspense fallback={<div />} children={<StreetView innerWidth={innerWidth} position={position} />} />,
     },
     {
       title: 'Schools',
       path: path.replace(':id', 'schools'),
-      main: <Schools position={position} />,
       main: <Suspense fallback={<div />} children={<Schools position={position} />} />,
     },
-    {
-      title: 'Crime',
-      path: path.replace(':id', 'crime'),
-      main: <div></div>,
-    },
+    // {
+    //   title: 'Crime',
+    //   path: path.replace(':id', 'crime'),
+    //   main: <div></div>,
+    // },
     {
       title: 'Commute',
       path: path.replace(':id', 'commute'),
       main: <Commute position={position} />,
       main: <Suspense fallback={<div />} children={<Commute position={position} />} />,
     },
-    {
-      title: 'Shop & Eat',
-      path: path.replace(':id', 'ammenities'),
-      main: <div></div>,
-    },
+    // {
+    //   title: 'Shop & Eat',
+    //   path: path.replace(':id', 'ammenities'),
+    //   main: <div></div>,
+    // },
   ];
 
   useEffect(() => {
+    setWidth(window.innerWidth);
     const resize = () => setWidth(window.innerWidth)
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);

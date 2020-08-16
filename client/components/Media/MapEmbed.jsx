@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import MarkerClusterer from '@google/markerclustererplus';
-// import locations from '../helper/testData.js';
+// import MarkerClusterer from '@google/markerclustererplus';
 
 const MapEmbed = styled.div`
   height: 100%;
@@ -27,9 +26,7 @@ export default ({ position, markers = [] }) => {
         infowindow.open(map, marker);
       });
       marker.addListener('mouseout', function() {
-        if (selected !== infowindow) {
-          infowindow.close();
-        }
+        if (selected !== infowindow) infowindow.close();
       });
     });
   };

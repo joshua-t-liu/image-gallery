@@ -1,12 +1,12 @@
-/*! ModuleConcatenation bailout: Cannot concat with ./client/src/components/buttons.jsx because of ./client/src/components/MediaPopup/Head.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./client/components/buttons.jsx because of ./client/components/MediaPopup/Head.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./client/src/index.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./client/index.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router-dom/esm/react-router-dom.js because of ./client/src/components/MediaPopup/MediaPopup.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router-dom/esm/react-router-dom.js because of ./client/components/MediaPopup/MediaPopup.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router/esm/react-router.js because of ./client/src/components/MediaPopup/MediaPopup.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router/esm/react-router.js because of ./client/components/MediaPopup/MediaPopup.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./client/src/index.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./client/index.jsx */
 
 /*! ModuleConcatenation bailout: Cannot concat with external "React" (<- Module is not an ECMAScript module) */
 
@@ -64,21 +64,21 @@
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
 
+/*!**************************************!*\
+  !*** ./client/index.jsx + 8 modules ***!
+  \**************************************/
+
+/*!***************************************!*\
+  !*** ./client/components/buttons.jsx ***!
+  \***************************************/
+
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
   \****************************************/
 
 /*!******************************************!*\
-  !*** ./client/src/index.jsx + 9 modules ***!
-  \******************************************/
-
-/*!******************************************!*\
   !*** ./node_modules/prop-types/index.js ***!
   \******************************************/
-
-/*!*******************************************!*\
-  !*** ./client/src/components/buttons.jsx ***!
-  \*******************************************/
 
 /*!*******************************************************!*\
   !*** ./node_modules/react-router/esm/react-router.js ***!

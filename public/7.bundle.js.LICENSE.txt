@@ -1,8 +1,8 @@
-/*! ModuleConcatenation bailout: Cannot concat with ./client/src/components/CarouselFixed/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./client/components/CarouselFixed/index.js */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./client/src/components/Media/MapEmbed.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./client/components/Media/MapEmbed.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./client/src/components/buttons.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./client/components/buttons.jsx */
 
 /*! ModuleConcatenation bailout: Cannot concat with external "React" (<- Module is not an ECMAScript module) */
 
@@ -14,10 +14,10 @@
 
 /*! exports used: default */
 
-/*!**************************************************!*\
-  !*** ./client/src/components/Media/MapEmbed.jsx ***!
-  \**************************************************/
+/*!**********************************************!*\
+  !*** ./client/components/Media/MapEmbed.jsx ***!
+  \**********************************************/
 
-/*!*************************************************************!*\
-  !*** ./client/src/components/Media/Schools.jsx + 6 modules ***!
-  \*************************************************************/
+/*!*********************************************************!*\
+  !*** ./client/components/Media/Schools.jsx + 6 modules ***!
+  \*********************************************************/

@@ -1,4 +1,4 @@
-import { GoogleAPIKey } from '../../config/config.js';
+import { GoogleAPIKey } from '../config/config.js';
 
 const setupMapAPI = (cb = () => {}) => {
   // Create the script tag, set the appropriate attributes
