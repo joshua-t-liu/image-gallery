@@ -1,10 +1,10 @@
-import React, { createRef } from 'react';
+import React, { createRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Modal = styled.div`
   position: fixed;
-  height: 100vh;
+  height: ${({ height }) => `${height}px` || '100vh'};
   width: 100vw;
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.6);
@@ -15,6 +15,7 @@ const Modal = styled.div`
 `;
 
 export default ({ children }) => {
+  const [height, setHeight] = useState(window.innerHeight);
   const history = useHistory();
   const ref = createRef();
 
@@ -32,7 +33,7 @@ export default ({ children }) => {
   }
 
   return (
-    <Modal ref={ref} onClick={onClick} onTransitionEnd={onTransistionEnd} >
+    <Modal height={height} ref={ref} onClick={onClick} onTransitionEnd={onTransistionEnd} >
       {children}
     </Modal>
   )
