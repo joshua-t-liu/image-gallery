@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+const SMALL_WIDTH = '768px';
+const MEDIUM_WIDTH = '1248px';
+
 const Footer = styled.div`
   display: flex;
   align-items: center;
@@ -19,6 +22,9 @@ const Summary = styled.div`
   text-align: center;
   padding: 8px 0px;
   margin-right: ${({ offset }) => offset};
+  @media (max-width: ${SMALL_WIDTH}) {
+    margin-right: auto;
+  }
 `;
 
 const Pipe = () => (

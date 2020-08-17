@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import ScheduleForm from '../Forms/ScheduleForm';
 import { ScheduleButton } from '../buttons';
 
+const SMALL_WIDTH = '768px';
+const MEDIUM_WIDTH = '1248px';
+
 const Sidebar = styled.div`
   position: absolute;
   right: 8px;
@@ -16,6 +19,9 @@ const Sidebar = styled.div`
   overflow-x: hidden;
   z-index: 100;
   border: 1px solid rgb(232, 233, 234);
+  @media (max-width: ${SMALL_WIDTH}) {
+    display: none;
+  }
 `;
 
 const Footer = styled.div`
@@ -23,6 +29,9 @@ const Footer = styled.div`
   right: 4px;
   bottom: 6px;
   z-index: 100;
+  @media (max-width: ${SMALL_WIDTH}) {
+    display: none;
+  }
 `;
 
 export default ({ innerWidth }) => {
