@@ -1,4 +1,4 @@
-import React, { createRef, useState } from 'react';
+import React, { createRef, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -31,6 +31,10 @@ export default ({ children }) => {
       event.target.style.opacity = 0;
     }
   }
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setHeight(window.innerHeight));
+  }, []);
 
   return (
     <Modal height={height} ref={ref} onClick={onClick} onTransitionEnd={onTransistionEnd} >
