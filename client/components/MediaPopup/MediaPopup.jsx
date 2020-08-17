@@ -17,8 +17,8 @@ const MediaContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
   font-family: arial;
