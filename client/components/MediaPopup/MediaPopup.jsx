@@ -31,12 +31,11 @@ const MediaContainer = styled.div`
 `;
 
 const Body = styled.div`
-  height: ${({ height }) => height};
+  height: fit-content;
   flex: 1 1 auto;
 `;
 
 export default ({ home }) => {
-  const ref = useRef();
   const { path } = useRouteMatch();
   const [innerWidth, setWidth] = useState(null);
 
@@ -89,8 +88,8 @@ export default ({ home }) => {
   return (
     <Modal>
       <MediaContainer>
-        <Head ref={ref} routes={routes} />
-        <Body height={(ref.current) ? `calc(100% - ${ref.current.offsetHeigh}px)` : '100%'}>
+        <Head routes={routes} />
+        <Body>
           <Switch>
             {routes.map(({ path, main }, idx) => <Route key={idx} path={path} children={main} />)}
           </Switch>
