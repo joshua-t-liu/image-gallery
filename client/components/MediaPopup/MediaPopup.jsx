@@ -1,4 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -85,7 +86,7 @@ export default ({ home }) => {
     return () => window.removeEventListener('resize', resize);
   }, []);
 
-  return (
+  return createPortal(
     <Modal>
       <MediaContainer>
         <Head routes={routes} />
@@ -96,5 +97,5 @@ export default ({ home }) => {
         </Body>
       </MediaContainer>
     </Modal>
-  )
+  , document.getElementById('image-modal'));
 };

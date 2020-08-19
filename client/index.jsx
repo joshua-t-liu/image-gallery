@@ -13,6 +13,10 @@ if (!imageGallery) {
   document.body.prepend(imageGallery);
 }
 
+const modal = document.createElement('div');
+modal.id = 'image-modal';
+document.body.append(modal);
+
 ReactDOM.render((
   <Router>
     <App id={id} pathname={window.location.pathname} />

@@ -38,7 +38,9 @@ export default ({ id, homeInit = initial, pathname = '/' }) => {
       <MainImage home={home} pathname={resolvedPath} />
     </ImageContainer>
     <Suspense fallback={<div></div>}>
-      {background && <Route path={`${resolvedPath}/:id`} children={<MediaPopup home={home} />} />}
+      {/* {background &&
+        <Route path={`${resolvedPath}/:id`} render={() => <MediaPopup home={home} />} />} */}
+      <Route path={`${resolvedPath}/:id`} render={() => <MediaPopup home={home} />} />
     </Suspense>
     </>
   )
