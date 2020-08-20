@@ -2,9 +2,9 @@
 
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@babel/runtime/helpers/esm/extends.js because of ./client/index.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router-dom/esm/react-router-dom.js because of ./client/components/MediaPopup/Head.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router-dom/esm/react-router-dom.js because of ./client/components/MediaPopup/MediaPopup.jsx */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router/esm/react-router.js because of ./client/components/MediaPopup/Head.jsx */
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-router/esm/react-router.js because of ./client/components/MediaPopup/MediaPopup.jsx */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./client/index.jsx */
 

@@ -62,7 +62,7 @@ const StyledCTAButton = styled(BasicButton)`
   ${Path} {
     fill: ${({ theme }) => theme.color};
   }
-  @media (max-width: ${SMALL_WIDTH}) {
+  @media (max-width: ${SMALL_WIDTH}), (max-height: ${SMALL_WIDTH}) {
     border: none;
     margin: auto;
     background-color: transparent;
@@ -85,7 +85,7 @@ StyledCTAButton.defaultProps = {
 
 const CTAText = styled.span`
   margin-left: 8px;
-  @media (max-width: ${SMALL_WIDTH}) {
+  @media (max-width: ${SMALL_WIDTH}), (max-height: ${SMALL_WIDTH}) {
     display: none;
   }
 `;
