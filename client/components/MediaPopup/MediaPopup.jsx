@@ -46,11 +46,11 @@ export default ({ home }) => {
       path: path.replace(':id', 'photos'),
       main: <Suspense fallback={<div />} children={<Photos home={home} innerWidth={innerWidth} />} />,
     },
-    // {
-    //   title: 'Map',
-    //   path: path.replace(':id', 'mapView'),
-    //   main: <Suspense fallback={<div />} children={<Map innerWidth={innerWidth} position={position} />} />,
-    // },
+    {
+      title: 'Map',
+      path: path.replace(':id', 'mapView'),
+      main: <Suspense fallback={<div />} children={<Map innerWidth={innerWidth} position={position} />} />,
+    },
     {
       title: 'Street View',
       path: path.replace(':id', 'streetView'),
