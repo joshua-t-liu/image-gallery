@@ -20,10 +20,11 @@ const formatOpenTime = (startDate, endDate) => {
 };
 
 const images = [
-  './photo1.webp',
-  './photo2.webp',
-  './photo3.webp',
-  './photo4.webp',
+  './photo1.jpg',
+  './photo2.jpg',
+  './photo3.jpg',
+  './photo4.jpg',
+  './photo5.jpg',
 ]
 
 module.exports = { formatOpenTime, images } ;
